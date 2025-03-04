@@ -31,7 +31,7 @@ const ResultsScreen = ({
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
       <h2 className="text-3xl font-bold text-center mb-8">
-        Test natijalari
+        Test natijalarif
       </h2>
 
       <div className="space-y-6">
