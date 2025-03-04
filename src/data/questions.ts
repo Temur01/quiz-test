@@ -83,4 +83,16 @@ export const questions: Question[] = [
     options: ["Qaror va farmoyish", "Farman", "Qonun", "Nizom va rektorat buyrugʻi"],
     correctAnswer: "Qaror va farmoyish",
   },
+  {
+    id: 13,
+    question: "Davlat fuqarolik xizmati toʻgʻrisidagi qonunchilikka binoan, davlat xizmatchilari qanday majburiyatga ega?",
+    options: ["Qonunlarga qatʼiy rioya qilish va kasbiy odobni saqlash", "Davlat organi rahbarining barcha shaxsiy farmoyishlarini soʻzsiz bajarish", "Shaxsiy manfaatlarini himoya qilish", "Siyosiy partiyalar faoliyatida faol ishtirok etish"],
+    correctAnswer: "Qonunlarga qatʼiy rioya qilish va kasbiy odobni saqlash",
+  },
+  {
+    id: 14,
+    question: "Oʻzbekiston Respublikasida referendum oʻtkazish huquqi kimga tegishli?",
+    options: ["Oliy Majlis Qonunchilik palatasi va Senatiga, shuningdek Prezidentga", "Faqat Oliy Majlis Senati tomonidan tasdiqlanadi", "Mahalliy kengashlar birgalikda qaror qiladilar", "Faqat Markaziy saylov komissiyasi tomonidan hal etiladi"],
+    correctAnswer: "Oliy Majlis Qonunchilik palatasi va Senatiga, shuningdek Prezidentga",
+  }
 ];
