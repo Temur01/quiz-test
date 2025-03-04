@@ -19,7 +19,7 @@ const Navigation = ({
 }: NavigationProps) => {
   return (
     <div className="flex justify-between items-center mt-8 max-w-3xl mx-auto">
-      <motion.button
+      <button
         onClick={goToPrevious}
         disabled={currentQuestion === 1}
         className={`px-6 py-2 rounded-md ${
@@ -27,11 +27,9 @@ const Navigation = ({
             ? "bg-gray-300 text-gray-500 cursor-not-allowed"
             : "bg-gray-200 text-gray-800 hover:bg-gray-300"
         }`}
-        whileHover={currentQuestion !== 1 ? { scale: 1.05 } : {}}
-        whileTap={currentQuestion !== 1 ? { scale: 0.95 } : {}}
       >
         Oldingi
-      </motion.button>
+      </button>
       
       <div className="text-gray-600">
         {currentQuestion} / {totalQuestions}
@@ -47,14 +45,12 @@ const Navigation = ({
           Testni yakunlash
         </motion.button>
       ) : (
-        <motion.button
+        <button
           onClick={goToNext}
           className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
           Keyingi
-        </motion.button>
+        </button>
       )}
     </div>
   );

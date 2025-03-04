@@ -28,51 +28,20 @@ const ResultsScreen = ({
     return "Yaxshiroq tayyorlanishingiz kerak.";
   };
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-  };
-
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
-      <motion.h2 
-        className="text-3xl font-bold text-center mb-8"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <h2 className="text-3xl font-bold text-center mb-8">
         Test natijalari
-      </motion.h2>
+      </h2>
 
-      <motion.div 
-        className="space-y-6"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        <motion.div 
-          className="text-center p-6 bg-blue-50 rounded-lg"
-          variants={item}
-        >
+      <div className="space-y-6">
+        <div className="text-center p-6 bg-blue-50 rounded-lg">
           <h3 className="text-xl font-semibold mb-2">Umumiy ball</h3>
           <div className="text-5xl font-bold text-blue-600">{score}</div>
           <div className="text-sm text-gray-500 mt-2">100 balldan</div>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-4"
-          variants={item}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="p-4 bg-green-50 rounded-lg text-center">
             <h4 className="font-medium text-green-800">To'g'ri javoblar</h4>
             <div className="text-2xl font-bold text-green-600 mt-2">
@@ -93,20 +62,14 @@ const ResultsScreen = ({
               {percentage.toFixed(1)}%
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          className="p-6 bg-gray-50 rounded-lg text-center"
-          variants={item}
-        >
+        <div className="p-6 bg-gray-50 rounded-lg text-center">
           <h3 className="text-xl font-semibold mb-2">Fikr-mulohaza</h3>
           <p className="text-gray-700">{getFeedback()}</p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          className="text-center mt-8"
-          variants={item}
-        >
+        <div className="text-center mt-8">
           <motion.button
             onClick={onRestartQuiz}
             className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -115,8 +78,8 @@ const ResultsScreen = ({
           >
             Qayta boshlash
           </motion.button>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 };

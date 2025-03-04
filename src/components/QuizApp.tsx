@@ -6,7 +6,7 @@ import QuestionCard from "./QuestionCard";
 import Navigation from "./Navigation";
 import ProgressBar from "./ProgressBar";
 import ResultsScreen from "./ResultsScreen";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const QuizApp = () => {
   const [quizState, setQuizState] = useState<QuizState>({
@@ -16,6 +16,9 @@ const QuizApp = () => {
     isCompleted: false,
     score: 0,
   });
+  
+  // State to track if auto-navigation is in progress
+  const [isNavigating, setIsNavigating] = useState(false);
 
   // Initialize quiz with shuffled questions
   useEffect(() => {
@@ -31,10 +34,13 @@ const QuizApp = () => {
       isCompleted: false,
       score: 0,
     });
+    setIsNavigating(false);
   };
 
   const handleSelectAnswer = (answer: string) => {
     const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
+    
+    // Update the answer
     setQuizState((prev) => ({
       ...prev,
       answers: {
@@ -42,6 +48,22 @@ const QuizApp = () => {
         [currentQuestion.id]: answer,
       },
     }));
+    
+    // Prevent multiple auto-navigations
+    if (!isNavigating) {
+      setIsNavigating(true);
+      
+      // Automatically go to the next question after selecting an answer
+      setTimeout(() => {
+        if (quizState.currentQuestionIndex < quizState.questions.length - 1) {
+          goToNextQuestion();
+        } else {
+          // If it's the last question, submit the quiz after a short delay
+          setTimeout(() => submitQuiz(), 500);
+        }
+        setIsNavigating(false);
+      }, 500);
+    }
   };
 
   const goToNextQuestion = () => {
@@ -86,7 +108,7 @@ const QuizApp = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
       >
         <ResultsScreen
           score={quizState.score}
@@ -100,37 +122,29 @@ const QuizApp = () => {
 
   return (
     <div className="p-4 max-w-4xl mx-auto">
-      <motion.h1 
-        className="text-3xl font-bold text-center mb-8"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
+      <h1 className="text-3xl font-bold text-center mb-8">
         Test dasturi
-      </motion.h1>
+      </h1>
       
       <ProgressBar
         current={quizState.currentQuestionIndex + 1}
         total={quizState.questions.length}
       />
       
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={quizState.currentQuestionIndex}
-          initial={{ x: 300, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -300, opacity: 0 }}
-          transition={{ type: "spring", stiffness: 100 }}
-        >
-          <QuestionCard
-            question={currentQuestion}
-            selectedAnswer={quizState.answers[currentQuestion.id]}
-            onSelectAnswer={handleSelectAnswer}
-            questionNumber={quizState.currentQuestionIndex + 1}
-            totalQuestions={quizState.questions.length}
-          />
-        </motion.div>
-      </AnimatePresence>
+      <motion.div
+        key={quizState.currentQuestionIndex}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <QuestionCard
+          question={currentQuestion}
+          selectedAnswer={quizState.answers[currentQuestion.id]}
+          onSelectAnswer={handleSelectAnswer}
+          questionNumber={quizState.currentQuestionIndex + 1}
+          totalQuestions={quizState.questions.length}
+        />
+      </motion.div>
       
       <Navigation
         currentQuestion={quizState.currentQuestionIndex + 1}

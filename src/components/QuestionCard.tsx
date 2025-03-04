@@ -16,6 +16,10 @@ const QuestionCard = ({
   questionNumber,
   totalQuestions,
 }: QuestionCardProps) => {
+  const handleAnswerClick = (option: string) => {
+    onSelectAnswer(option);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto">
       <div className="flex justify-between items-center mb-4">
@@ -30,20 +34,17 @@ const QuestionCard = ({
       <h3 className="text-lg font-medium text-gray-900 mb-6">{question.question}</h3>
       
       <div className="space-y-3">
-        {question.options.map((option, index) => (
+        {question.options.map((option) => (
           <motion.button
             key={option}
-            onClick={() => onSelectAnswer(option)}
+            onClick={() => handleAnswerClick(option)}
             className={`w-full text-left p-4 rounded-lg transition-colors ${
               selectedAnswer === option
                 ? "bg-blue-500 text-white"
                 : "bg-gray-100 text-gray-800 hover:bg-gray-200"
             }`}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
           >
             {option}
           </motion.button>

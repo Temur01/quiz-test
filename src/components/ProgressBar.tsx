@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 
 interface ProgressBarProps {
   current: number;
@@ -11,12 +11,10 @@ const ProgressBar = ({ current, total }: ProgressBarProps) => {
   return (
     <div className="w-full max-w-3xl mx-auto mb-6">
       <div className="w-full bg-gray-200 rounded-full h-2.5">
-        <motion.div
-          className="bg-blue-600 h-2.5 rounded-full"
-          initial={{ width: 0 }}
-          animate={{ width: `${percentage}%` }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        ></motion.div>
+        <div
+          className="bg-blue-600 h-2.5 rounded-full transition-all duration-300 ease-in-out"
+          style={{ width: `${percentage}%` }}
+        ></div>
       </div>
     </div>
   );
