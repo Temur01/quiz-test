@@ -60,10 +60,10 @@ const QuizApp = () => {
           goToNextQuestion();
         } else {
           // If it's the last question, submit the quiz after a short delay
-          setTimeout(() => submitQuiz(), 500);
+          setTimeout(() => submitQuiz(), 250);
         }
         setIsNavigating(false);
-      }, 500);
+      }, 250);
     }
   };
 
