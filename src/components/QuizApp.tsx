@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Question, QuizState } from "../types";
 import { questions as allQuestions } from "../data/questions";
-import { shuffleArray, calculateScore } from "../utils/quizUtils";
+import { calculateScore, getRandomQuestions } from "../utils/quizUtils";
 import QuestionCard from "./QuestionCard";
 import Navigation from "./Navigation";
 import ProgressBar from "./ProgressBar";
@@ -20,15 +20,16 @@ const QuizApp = () => {
   // State to track if auto-navigation is in progress
   const [isNavigating, setIsNavigating] = useState(false);
 
-  // Initialize quiz with shuffled questions
+  // Initialize quiz with random questions
   useEffect(() => {
     startQuiz();
   }, []);
 
   const startQuiz = () => {
-    const shuffledQuestions = shuffleArray(allQuestions);
+    // Get 40 random questions from the question pool
+    const randomQuestions = getRandomQuestions(allQuestions, 40);
     setQuizState({
-      questions: shuffledQuestions,
+      questions: randomQuestions,
       currentQuestionIndex: 0,
       answers: {},
       isCompleted: false,

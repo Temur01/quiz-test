@@ -21,3 +21,15 @@ export const calculateScore = (
   
   return correctAnswers * pointsPerQuestion;
 };
+
+export const getRandomQuestions = (
+  allQuestions: Question[],
+  count: number = 40
+): Question[] => {
+  if (count >= allQuestions.length) {
+    return [...allQuestions]; // Return all questions if count is greater than available questions
+  }
+  
+  // Shuffle the array and take the first 'count' elements
+  return shuffleArray(allQuestions).slice(0, count);
+};
