@@ -1,17 +1,27 @@
 import QuizApp from "../../components/QuizApp";
 import logo from "../../assets/logo.png";
 import Timer from "../../components/Timer";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export const QuizPage = () => {
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
+  const [resetKey, setResetKey] = useState(0);
+  const quizAppRef = useRef<{ completeQuiz: () => void } | null>(null);
 
   const handleTimeUp = () => {
-    console.log("Time is up!");
+    setIsQuizCompleted(true);
+
+    if (quizAppRef.current) {
+      quizAppRef.current.completeQuiz();
+    }
   };
 
   const handleQuizComplete = (completed: boolean) => {
     setIsQuizCompleted(completed);
+
+    if (!completed) {
+      setResetKey((prev) => prev + 1);
+    }
   };
 
   return (
@@ -24,6 +34,7 @@ export const QuizPage = () => {
             className="h-16"
           />
           <Timer
+            key={resetKey}
             initialTime={3600}
             onTimeUp={handleTimeUp}
             isCompleted={isQuizCompleted}
@@ -32,7 +43,11 @@ export const QuizPage = () => {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <QuizApp onQuizComplete={handleQuizComplete} />
+        <QuizApp
+          key={resetKey}
+          ref={quizAppRef}
+          onQuizComplete={handleQuizComplete}
+        />
       </div>
     </div>
   );

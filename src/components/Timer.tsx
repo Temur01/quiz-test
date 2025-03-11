@@ -14,6 +14,16 @@ const Timer: React.FC<TimerProps> = ({
   const [timeRemaining, setTimeRemaining] = useState(initialTime);
 
   useEffect(() => {
+    setTimeRemaining(initialTime);
+  }, [initialTime]);
+
+  useEffect(() => {
+    if (!isCompleted) {
+      setTimeRemaining(initialTime);
+    }
+  }, [isCompleted, initialTime]);
+
+  useEffect(() => {
     let timer: number | undefined;
 
     if (!isCompleted && timeRemaining > 0) {
@@ -50,7 +60,7 @@ const Timer: React.FC<TimerProps> = ({
         <div className="border-2 border-[#1E88E5] rounded-lg px-4 py-2 w-16 text-center">
           <div className="text-xl font-bold text-[#1E88E5]">{hours}</div>
         </div>
-        <div className="text-sm text-[#1E88E5] mt-1">Soat</div>
+        <div className="text-xs mt-1 text-gray-600">Soat</div>
       </div>
 
       {/* Colon */}
@@ -61,7 +71,7 @@ const Timer: React.FC<TimerProps> = ({
         <div className="border-2 border-[#1E88E5] rounded-lg px-4 py-2 w-16 text-center">
           <div className="text-xl font-bold text-[#1E88E5]">{minutes}</div>
         </div>
-        <div className="text-sm text-[#1E88E5] mt-1">Daqiqa</div>
+        <div className="text-xs mt-1 text-gray-600">Daqiqa</div>
       </div>
 
       {/* Colon */}
@@ -72,7 +82,7 @@ const Timer: React.FC<TimerProps> = ({
         <div className="border-2 border-[#1E88E5] rounded-lg px-4 py-2 w-16 text-center">
           <div className="text-xl font-bold text-[#1E88E5]">{seconds}</div>
         </div>
-        <div className="text-sm text-[#1E88E5] mt-1">Soniya</div>
+        <div className="text-xs mt-1 text-gray-600">Soniya</div>
       </div>
     </div>
   );
