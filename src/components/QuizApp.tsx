@@ -130,11 +130,10 @@ const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
   }
 
   if (quizState.isCompleted) {
-    const totalQuestions = quizState.questions.length;
     return (
       <ResultsScreen
-        score={quizState.score}
-        totalQuestions={totalQuestions}
+        questions={quizState.questions}
+        answers={quizState.answers}
         userInfo={userInfo}
         onRestartQuiz={restartQuiz}
       />
