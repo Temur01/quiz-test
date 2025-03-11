@@ -132,11 +132,11 @@ const QuizApp: React.FC = () => {
   const totalQuestions = quizState.questions.length;
 
   return (
-    <div className="bg-white rounded-md shadow-md overflow-hidden border border-gray-200">
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
       <div className="flex flex-col md:flex-row">
         {/* Left sidebar */}
         <div className="md:w-1/4 border-r border-gray-200 bg-gray-50">
-          <div className="p-5 border-b border-gray-200 bg-white">
+          <div className="p-5 border-b border-gray-200 bg-white shadow-sm">
             <UserInfo name={userInfo.name} pin={userInfo.pin} />
           </div>
 
@@ -150,8 +150,8 @@ const QuizApp: React.FC = () => {
         </div>
 
         <div className="md:w-3/4">
-          <div className="flex justify-between items-center p-5 border-b border-gray-200 bg-white">
-            <div className="text-base font-medium text-gray-800">
+          <div className="flex justify-between items-center p-5 border-b border-gray-200 bg-white shadow-sm">
+            <div className="text-lg font-semibold text-gray-800">
               Savol № {currentQuestionNumber}
             </div>
           </div>
@@ -164,7 +164,7 @@ const QuizApp: React.FC = () => {
             className="p-6"
           >
             <div className="mb-8">
-              <p className="text-base mb-6 text-gray-800 leading-relaxed">
+              <p className="text-lg mb-8 text-gray-800 leading-relaxed font-medium">
                 {currentQuestion.question}
               </p>
 
@@ -174,7 +174,13 @@ const QuizApp: React.FC = () => {
 
                   return (
                     <div key={index} className="mb-4">
-                      <label className="flex items-start cursor-pointer p-3 rounded-md border border-gray-200 hover:border-[#8CA1D3] hover:bg-gray-50 transition-all duration-200">
+                      <label
+                        className={`flex items-start cursor-pointer p-4 rounded-lg border ${
+                          isSelected
+                            ? "border-[#33B5F1] bg-blue-50"
+                            : "border-gray-200 hover:border-[#33B5F1] hover:bg-gray-50"
+                        } transition-all duration-200 shadow-sm hover:shadow-md`}
+                      >
                         <input
                           type="radio"
                           name="answer"
@@ -183,17 +189,25 @@ const QuizApp: React.FC = () => {
                           className="mt-1 mr-1 hidden"
                         />
                         <div className="flex items-center">
-                          <div className="relative mr-2">
+                          <div className="relative mr-3">
                             <div
-                              className={`w-4 h-4 rounded-md flex items-center justify-center ${isSelected ? "bg-[#8CA1D3] border border-[#8CA1D3]" : "border border-gray-300"}`}
+                              className={`w-5 h-5 rounded-full flex items-center justify-center ${
+                                isSelected
+                                  ? "bg-[#33B5F1] border-2 border-[#33B5F1]"
+                                  : "border-2 border-gray-300"
+                              }`}
                             >
                               {isSelected && (
-                                <div className="w-1.5 h-1.5 bg-white rounded-md"></div>
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
                               )}
                             </div>
                           </div>
                           <div className="flex">
-                            <span className="text-gray-800">{option}</span>
+                            <span
+                              className={`text-gray-800 ${isSelected ? "font-medium" : ""}`}
+                            >
+                              {option}
+                            </span>
                           </div>
                         </div>
                       </label>
@@ -207,28 +221,28 @@ const QuizApp: React.FC = () => {
               <button
                 onClick={goToPreviousQuestion}
                 disabled={quizState.currentQuestionIndex === 0}
-                className={`px-4 py-2 rounded-md font-medium transition-colors flex items-center ${
+                className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 flex items-center ${
                   quizState.currentQuestionIndex === 0
                     ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-[#8CA1D3] border border-[#8CA1D3] hover:bg-gray-50"
+                    : "bg-white text-[#33B5F1] border border-[#33B5F1] hover:bg-blue-50 shadow-sm hover:shadow-md"
                 }`}
               >
-                <ChevronLeft size={18} className="mr-1" />
+                <ChevronLeft size={18} className="mr-2" />
                 Oldingi
               </button>
 
               <div className="flex items-center">
-                <span className="px-3 py-1 bg-gray-100 rounded-md text-gray-700 font-medium">
+                <span className="px-4 py-2 bg-gray-100 rounded-lg text-gray-700 font-medium shadow-sm">
                   {currentQuestionNumber} / {totalQuestions}
                 </span>
               </div>
 
               <button
                 onClick={goToNextQuestion}
-                className="px-4 py-2 bg-[#8CA1D3] text-white rounded-md font-medium hover:bg-[#7b8fc0] transition-colors flex items-center"
+                className="px-4 py-3 bg-[#33B5F1] text-white rounded-lg font-medium hover:bg-[#1c94c4] transition-all duration-200 flex items-center shadow-sm hover:shadow-md"
               >
                 Keyingi
-                <ChevronRight size={18} className="ml-1" />
+                <ChevronRight size={18} className="ml-2" />
               </button>
             </div>
           </motion.div>

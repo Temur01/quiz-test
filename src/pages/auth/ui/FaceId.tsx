@@ -167,25 +167,70 @@ export const FaceIdAuth = () => {
 
   if (error) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-          <h2 className="text-center text-xl font-medium mb-6 text-red-700">
-            Xatolik
-          </h2>
-          <p className="text-center mb-6">{error}</p>
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+        <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md border border-gray-200">
+          <div className="text-center mb-6">
+            <svg
+              className="h-12 w-12 text-red-500 mx-auto mb-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
+            <h2 className="text-xl font-semibold text-red-700 mb-2">Xatolik</h2>
+            <p className="text-gray-600 mb-6">{error}</p>
+          </div>
           <div className="flex space-x-4">
             <button
               type="button"
-              className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition duration-200"
+              className="flex-1 bg-[#33B5F1] hover:bg-[#1c94c4] text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center"
               onClick={() => navigate("/")}
             >
+              <svg
+                className="h-5 w-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
               Qaytadan urinib ko'rish
             </button>
             <button
               type="button"
-              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-md transition duration-200"
+              className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center"
               onClick={() => startWebcam()}
             >
+              <svg
+                className="h-5 w-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
               Kamerani qayta ishga tushirish
             </button>
           </div>
@@ -195,19 +240,26 @@ export const FaceIdAuth = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-center text-xl font-medium mb-6 text-gray-700">
-          Yuz orqali autentifikatsiya
-        </h2>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md border border-gray-200">
+        <div className="text-center mb-8">
+          <h1 className="text-2xl font-bold text-gray-800 mb-2">
+            O'zbekiston Respublikasi
+          </h1>
+          <h2 className="text-xl font-semibold text-gray-700 mb-6">
+            Prezident huzuridagi Davlat xizmatlarini rivojlantirish agentligi
+          </h2>
 
-        <div className="mb-6">
+          <div className="w-20 h-1 bg-[#33B5F1] mx-auto mb-6"></div>
+
+          <h2 className="text-lg font-medium text-gray-700 mb-2">
+            Yuz orqali autentifikatsiya
+          </h2>
+        </div>
+
+        <div className="mb-8">
           <div className="relative flex justify-center">
-            <div className="relative w-48 h-64">
-              <div
-                className="absolute inset-0 rounded-full border-4 border-green-500"
-                style={{ borderRadius: "50%" }}
-              ></div>
+            <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#33B5F1] shadow-lg">
               {!capturedImage ? (
                 <video
                   ref={videoRef}
@@ -215,16 +267,18 @@ export const FaceIdAuth = () => {
                   playsInline
                   muted
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{ borderRadius: "50%" }}
                 />
               ) : (
                 <img
                   src={capturedImage}
                   alt="Captured"
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{ borderRadius: "50%" }}
                 />
               )}
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-40 h-40 border-2 border-dashed border-white rounded-full opacity-70"></div>
+              </div>
             </div>
 
             <canvas ref={canvasRef} className="hidden" />
@@ -233,7 +287,7 @@ export const FaceIdAuth = () => {
               <button
                 type="button"
                 onClick={resetCapture}
-                className="absolute top-0 right-0 bg-white p-2 rounded-full shadow-md"
+                className="absolute top-0 right-0 bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -253,7 +307,7 @@ export const FaceIdAuth = () => {
             )}
           </div>
 
-          <p className="text-center text-gray-600 mt-4 mb-2">
+          <p className="text-center text-gray-600 mt-6 mb-2 font-medium">
             {!capturedImage
               ? "Yuzingizni kameraga qarating"
               : "Rasmni tasdiqlang"}
@@ -262,15 +316,79 @@ export const FaceIdAuth = () => {
 
         <button
           type="button"
-          className={`w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition duration-200 ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
+          className={`w-full bg-[#33B5F1] hover:bg-[#1c94c4] text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
           onClick={handleVerify}
           disabled={isLoading}
         >
-          {isLoading
-            ? "Yuklanmoqda..."
-            : capturedImage
-              ? "Tasdiqlash"
-              : "Rasmga olish"}
+          {isLoading ? (
+            <div className="flex items-center justify-center">
+              <svg
+                className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              Yuklanmoqda...
+            </div>
+          ) : (
+            <>
+              {capturedImage ? (
+                <>
+                  <svg
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  Tasdiqlash
+                </>
+              ) : (
+                <>
+                  <svg
+                    className="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  Rasmga olish
+                </>
+              )}
+            </>
+          )}
         </button>
       </div>
     </div>
