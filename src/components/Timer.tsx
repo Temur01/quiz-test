@@ -4,15 +4,20 @@ import { Clock } from "lucide-react";
 interface TimerProps {
   initialTime: number; // in seconds
   onTimeUp: () => void;
+  isCompleted?: boolean;
 }
 
-const Timer: React.FC<TimerProps> = ({ initialTime, onTimeUp }) => {
+const Timer: React.FC<TimerProps> = ({
+  initialTime,
+  onTimeUp,
+  isCompleted = false,
+}) => {
   const [timeRemaining, setTimeRemaining] = useState(initialTime);
 
   useEffect(() => {
     let timer: number | undefined;
 
-    if (timeRemaining > 0) {
+    if (!isCompleted && timeRemaining > 0) {
       timer = window.setTimeout(() => {
         setTimeRemaining((prevTime) => prevTime - 1);
       }, 1000);
@@ -23,7 +28,7 @@ const Timer: React.FC<TimerProps> = ({ initialTime, onTimeUp }) => {
     return () => {
       if (timer) window.clearTimeout(timer);
     };
-  }, [timeRemaining, onTimeUp]);
+  }, [timeRemaining, onTimeUp, isCompleted]);
 
   const formatTime = (seconds: number) => {
     const hours = Math.floor(seconds / 3600);

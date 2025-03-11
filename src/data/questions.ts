@@ -228,86 +228,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
   ],
-  IQ: [
-    {
-      id: 21,
-      question:
-        "Agar 8 ishchi bir ishni 6 kunda bajarsa, xuddi shu ishni 12 ishchi necha kunda bajaradi?",
-      options: ["4", "5", "3", "2"],
-      correctAnswer: "4",
-      type: "IQ",
-    },
-    {
-      id: 22,
-      question:
-        "Quyidagi ketma-ketlikdagi keyingi son qaysi? 2, 4, 8, 16, 32, ...",
-      options: ["64", "48", "56", "40"],
-      correctAnswer: "64",
-      type: "IQ",
-    },
-    {
-      id: 23,
-      question: "Agar 3 + 3 × 3 - 3 ÷ 3 = ? bo'lsa, natija nechiga teng?",
-      options: ["9", "10", "11", "12"],
-      correctAnswer: "11",
-      type: "IQ",
-    },
-    {
-      id: 24,
-      question:
-        "Agar bugun dushanba bo'lsa, 100 kundan keyin qanday kun bo'ladi?",
-      options: ["Dushanba", "Seshanba", "Chorshanba", "Payshanba"],
-      correctAnswer: "Chorshanba",
-      type: "IQ",
-    },
-    {
-      id: 25,
-      question:
-        "5 ta ketma-ket juft sonlar yig'indisi 70 ga teng. Eng kichik son qaysi?",
-      options: ["10", "8", "6", "4"],
-      correctAnswer: "10",
-      type: "IQ",
-    },
-    {
-      id: 26,
-      question:
-        "Quyidagi ketma-ketlikda keyingi son qaysi? 1, 4, 9, 16, 25, ...",
-      options: ["36", "49", "35", "30"],
-      correctAnswer: "36",
-      type: "IQ",
-    },
-    {
-      id: 27,
-      question: "Agar 3 × 5 = 15, 4 × 6 = 24, 5 × 7 = 35 bo'lsa, 8 × 9 = ?",
-      options: ["72", "63", "81", "64"],
-      correctAnswer: "72",
-      type: "IQ",
-    },
-    {
-      id: 28,
-      question:
-        "Agar A = 1, B = 2, C = 3 ... Z = 26 bo'lsa, 'CODE' so'zidagi harflar qiymatlarining yig'indisi nechiga teng?",
-      options: ["27", "30", "25", "32"],
-      correctAnswer: "27",
-      type: "IQ",
-    },
-    {
-      id: 29,
-      question:
-        "Quyidagi ketma-ketlikda keyingi son qaysi? 2, 6, 12, 20, 30, ...",
-      options: ["42", "40", "36", "48"],
-      correctAnswer: "42",
-      type: "IQ",
-    },
-    {
-      id: 30,
-      question:
-        "Agar bir quti qizil, ko'k va yashil sharlardan iborat bo'lsa, ko'zi bog'langan holda kamida nechta shar olish kerak bo'ladi, har bir rangdan kamida bittadan shar olish uchun?",
-      options: ["7", "6", "3", "4"],
-      correctAnswer: "7",
-      type: "IQ",
-    },
-  ],
+
   "Milliy qonunchilik": [
     {
       id: 31,
@@ -436,6 +357,87 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
   ],
+
+  IQ: [
+    {
+      id: 21,
+      question:
+        "Agar 8 ishchi bir ishni 6 kunda bajarsa, xuddi shu ishni 12 ishchi necha kunda bajaradi?",
+      options: ["4", "5", "3", "2"],
+      correctAnswer: "4",
+      type: "IQ",
+    },
+    {
+      id: 22,
+      question:
+        "Quyidagi ketma-ketlikdagi keyingi son qaysi? 2, 4, 8, 16, 32, ...",
+      options: ["64", "48", "56", "40"],
+      correctAnswer: "64",
+      type: "IQ",
+    },
+    {
+      id: 23,
+      question: "Agar 3 + 3 × 3 - 3 ÷ 3 = ? bo'lsa, natija nechiga teng?",
+      options: ["9", "10", "11", "12"],
+      correctAnswer: "11",
+      type: "IQ",
+    },
+    {
+      id: 24,
+      question:
+        "Agar bugun dushanba bo'lsa, 100 kundan keyin qanday kun bo'ladi?",
+      options: ["Dushanba", "Seshanba", "Chorshanba", "Payshanba"],
+      correctAnswer: "Chorshanba",
+      type: "IQ",
+    },
+    {
+      id: 25,
+      question:
+        "5 ta ketma-ket juft sonlar yig'indisi 70 ga teng. Eng kichik son qaysi?",
+      options: ["10", "8", "6", "4"],
+      correctAnswer: "10",
+      type: "IQ",
+    },
+    {
+      id: 26,
+      question:
+        "Quyidagi ketma-ketlikda keyingi son qaysi? 1, 4, 9, 16, 25, ...",
+      options: ["36", "49", "35", "30"],
+      correctAnswer: "36",
+      type: "IQ",
+    },
+    {
+      id: 27,
+      question: "Agar 3 × 5 = 15, 4 × 6 = 24, 5 × 7 = 35 bo'lsa, 8 × 9 = ?",
+      options: ["72", "63", "81", "64"],
+      correctAnswer: "72",
+      type: "IQ",
+    },
+    {
+      id: 28,
+      question:
+        "Agar A = 1, B = 2, C = 3 ... Z = 26 bo'lsa, 'CODE' so'zidagi harflar qiymatlarining yig'indisi nechiga teng?",
+      options: ["27", "30", "25", "32"],
+      correctAnswer: "27",
+      type: "IQ",
+    },
+    {
+      id: 29,
+      question:
+        "Quyidagi ketma-ketlikda keyingi son qaysi? 2, 6, 12, 20, 30, ...",
+      options: ["42", "40", "36", "48"],
+      correctAnswer: "42",
+      type: "IQ",
+    },
+    {
+      id: 30,
+      question:
+        "Agar bir quti qizil, ko'k va yashil sharlardan iborat bo'lsa, ko'zi bog'langan holda kamida nechta shar olish kerak bo'ladi, har bir rangdan kamida bittadan shar olish uchun?",
+      options: ["7", "6", "3", "4"],
+      correctAnswer: "7",
+      type: "IQ",
+    },
+  ],
 };
 
 // Shuffle function for arrays
@@ -454,16 +456,16 @@ const shuffledQuestionsByCategory: QuestionsByCategory = {
   "Axborot kommunikatsiya texnologiyalari": shuffleArray(
     questionsByCategory["Axborot kommunikatsiya texnologiyalari"],
   ),
-  IQ: shuffleArray(questionsByCategory.IQ),
   "Milliy qonunchilik": shuffleArray(questionsByCategory["Milliy qonunchilik"]),
+  IQ: shuffleArray(questionsByCategory.IQ),
 };
 
 // Flatten the questions array for compatibility with existing components
 export const questions: Question[] = [
   ...shuffledQuestionsByCategory["Davlat tili"],
+  ...shuffledQuestionsByCategory["Milliy qonunchilik"],
   ...shuffledQuestionsByCategory["Axborot kommunikatsiya texnologiyalari"],
   ...shuffledQuestionsByCategory.IQ,
-  ...shuffledQuestionsByCategory["Milliy qonunchilik"],
 ];
 
 // Also export the shuffled questions by category

@@ -1,10 +1,18 @@
 import QuizApp from "../../components/QuizApp";
 import logo from "../../assets/logo.png";
 import Timer from "../../components/Timer";
+import { useState } from "react";
 
 export const QuizPage = () => {
+  const [isQuizCompleted, setIsQuizCompleted] = useState(false);
+
   const handleTimeUp = () => {
     console.log("Time is up!");
+    // You could also automatically complete the quiz here if needed
+  };
+
+  const handleQuizComplete = (completed: boolean) => {
+    setIsQuizCompleted(completed);
   };
 
   return (
@@ -16,11 +24,15 @@ export const QuizPage = () => {
             alt="O'zbekiston Respublikasi Davlat Xizmati"
             className="h-14"
           />
-          <Timer initialTime={3600} onTimeUp={handleTimeUp} />
+          <Timer
+            initialTime={3600}
+            onTimeUp={handleTimeUp}
+            isCompleted={isQuizCompleted}
+          />
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <QuizApp />
+        <QuizApp onQuizComplete={handleQuizComplete} />
       </div>
     </div>
   );

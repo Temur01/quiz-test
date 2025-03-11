@@ -8,7 +8,11 @@ import QuestionMap from "./QuestionMap";
 import UserInfo from "./UserInfo";
 import ResultsScreen from "./ResultsScreen";
 
-const QuizApp: React.FC = () => {
+interface QuizAppProps {
+  onQuizComplete?: (completed: boolean) => void;
+}
+
+const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
   const [userInfo, setUserInfo] = useState({
     name: "",
     pin: "",
@@ -52,19 +56,50 @@ const QuizApp: React.FC = () => {
 
     setTimeout(() => {
       if (quizState.currentQuestionIndex < quizState.questions.length - 1) {
-        goToNextQuestion();
+        handleNextQuestion();
       } else {
-        calculateScore();
+        completeQuiz();
       }
     }, 300);
   };
 
-  const goToNextQuestion = () => {
-    if (quizState.currentQuestionIndex < quizState.questions.length - 1) {
-      setQuizState((prev) => ({
-        ...prev,
-        currentQuestionIndex: prev.currentQuestionIndex + 1,
+  const handleNextQuestion = () => {
+    const nextIndex = quizState.currentQuestionIndex + 1;
+
+    if (nextIndex < quizState.questions.length) {
+      setQuizState((prevState) => ({
+        ...prevState,
+        currentQuestionIndex: nextIndex,
       }));
+    } else {
+      completeQuiz();
+    }
+  };
+
+  const completeQuiz = () => {
+    setQuizState((prevState) => ({
+      ...prevState,
+      isCompleted: true,
+    }));
+
+    // Notify parent component that quiz is completed
+    if (onQuizComplete) {
+      onQuizComplete(true);
+    }
+  };
+
+  const restartQuiz = () => {
+    setQuizState({
+      questions: [...questions],
+      currentQuestionIndex: 0,
+      answers: {},
+      isCompleted: false,
+      score: 0,
+    });
+
+    // Notify parent component that quiz is restarted
+    if (onQuizComplete) {
+      onQuizComplete(false);
     }
   };
 
@@ -86,28 +121,6 @@ const QuizApp: React.FC = () => {
     }
   };
 
-  const handleRestartQuiz = () => {
-    setQuizState({
-      questions: [...questions],
-      currentQuestionIndex: 0,
-      answers: {},
-      score: 0,
-      isCompleted: false,
-    });
-  };
-
-  const calculateScore = () => {
-    const correctAnswers = quizState.questions.filter((question) => {
-      return question.correctAnswer === quizState.answers[question.id];
-    });
-    const score = correctAnswers.length;
-    setQuizState((prev) => ({
-      ...prev,
-      score,
-      isCompleted: true,
-    }));
-  };
-
   if (quizState.questions.length === 0) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -123,7 +136,7 @@ const QuizApp: React.FC = () => {
         score={quizState.score}
         totalQuestions={totalQuestions}
         userInfo={userInfo}
-        onRestartQuiz={handleRestartQuiz}
+        onRestartQuiz={restartQuiz}
       />
     );
   }
@@ -243,7 +256,7 @@ const QuizApp: React.FC = () => {
               </div>
 
               <button
-                onClick={goToNextQuestion}
+                onClick={handleNextQuestion}
                 className="px-4 py-3 bg-[#8CA1D3] text-white rounded-lg font-medium hover:bg-[#7B8FC0] transition-all duration-200 flex items-center shadow-sm hover:shadow-md"
               >
                 Keyingi
