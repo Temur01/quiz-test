@@ -160,9 +160,7 @@ export const PassportAuth = () => {
 
           <div className="w-20 h-1 bg-[#33B5F1] mx-auto mb-6"></div>
 
-          <h2 className="text-lg font-medium text-gray-700">
-            Ro'yxatdan o'tish
-          </h2>
+          <h2 className="text-lg font-medium text-gray-700">Tizimga kirish</h2>
         </div>
 
         {errors.general && (
