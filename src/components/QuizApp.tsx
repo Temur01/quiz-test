@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Cookies from "js-cookie";
 import { QuizState } from "../types";
 import { questions } from "../data/questions";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, AlertCircle } from "lucide-react";
 import QuestionMap from "./QuestionMap";
 import UserInfo from "./UserInfo";
 import ResultsScreen from "./ResultsScreen";
@@ -26,6 +26,8 @@ const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
     isCompleted: false,
     score: 0,
   });
+
+  const [showCompletionError, setShowCompletionError] = useState(false);
 
   useEffect(() => {
     // Get user info from cookies
@@ -77,6 +79,14 @@ const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
   };
 
   const completeQuiz = () => {
+    const answeredQuestionsCount = Object.keys(quizState.answers).length;
+
+    if (answeredQuestionsCount < 40) {
+      setShowCompletionError(true);
+      setTimeout(() => setShowCompletionError(false), 5000);
+      return;
+    }
+
     setQuizState((prevState) => ({
       ...prevState,
       isCompleted: true,
@@ -144,6 +154,7 @@ const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
   const selectedAnswer = quizState.answers[currentQuestion.id];
   const currentQuestionNumber = quizState.currentQuestionIndex + 1;
   const totalQuestions = quizState.questions.length;
+  const answeredQuestionsCount = Object.keys(quizState.answers).length;
 
   return (
     <div className="rounded-lg shadow-lg overflow-hidden p-3">
@@ -171,7 +182,19 @@ const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
             <div className="text-lg font-semibold text-gray-800">
               Savol № {currentQuestionNumber}
             </div>
+            <div className="text-sm font-medium text-gray-600">
+              Javob berilgan: {answeredQuestionsCount} / 40
+            </div>
           </div>
+
+          {showCompletionError && (
+            <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-md flex items-center text-red-600">
+              <AlertCircle size={18} className="mr-2" />
+              <span>
+                Testni yakunlash uchun barcha savollarga javob berish kerak!
+              </span>
+            </div>
+          )}
 
           <motion.div
             key={quizState.currentQuestionIndex}
@@ -254,13 +277,27 @@ const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
                 </span>
               </div>
 
-              <button
-                onClick={handleNextQuestion}
-                className="px-4 py-3 bg-[#8CA1D3] text-white rounded-lg font-medium hover:bg-[#7B8FC0] transition-all duration-200 flex items-center shadow-sm hover:shadow-md"
-              >
-                Keyingi
-                <ChevronRight size={18} className="ml-2" />
-              </button>
+              {quizState.currentQuestionIndex ===
+              quizState.questions.length - 1 ? (
+                <button
+                  onClick={completeQuiz}
+                  className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 flex items-center ${
+                    answeredQuestionsCount >= 40
+                      ? "bg-green-600 text-white hover:bg-green-700 shadow-sm hover:shadow-md"
+                      : "bg-gray-300 text-gray-600 cursor-not-allowed"
+                  }`}
+                >
+                  Testni yakunlash
+                </button>
+              ) : (
+                <button
+                  onClick={handleNextQuestion}
+                  className="px-4 py-3 bg-[#8CA1D3] text-white rounded-lg font-medium hover:bg-[#7B8FC0] transition-all duration-200 flex items-center shadow-sm hover:shadow-md"
+                >
+                  Keyingi
+                  <ChevronRight size={18} className="ml-2" />
+                </button>
+              )}
             </div>
           </motion.div>
         </div>

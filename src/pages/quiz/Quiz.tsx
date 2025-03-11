@@ -8,7 +8,6 @@ export const QuizPage = () => {
 
   const handleTimeUp = () => {
     console.log("Time is up!");
-    // You could also automatically complete the quiz here if needed
   };
 
   const handleQuizComplete = (completed: boolean) => {
@@ -22,13 +21,14 @@ export const QuizPage = () => {
           <img
             src={logo}
             alt="O'zbekiston Respublikasi Davlat Xizmati"
-            className="h-14"
+            className="h-16"
           />
           <Timer
             initialTime={3600}
             onTimeUp={handleTimeUp}
             isCompleted={isQuizCompleted}
           />
+          <div></div>
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 py-6">
