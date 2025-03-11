@@ -438,10 +438,33 @@ const questionsByCategory: QuestionsByCategory = {
   ],
 };
 
+// Shuffle function for arrays
+const shuffleArray = <T>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+// Shuffle questions within each category
+const shuffledQuestionsByCategory: QuestionsByCategory = {
+  "Davlat tili": shuffleArray(questionsByCategory["Davlat tili"]),
+  "Axborot kommunikatsiya texnologiyalari": shuffleArray(
+    questionsByCategory["Axborot kommunikatsiya texnologiyalari"],
+  ),
+  IQ: shuffleArray(questionsByCategory.IQ),
+  "Milliy qonunchilik": shuffleArray(questionsByCategory["Milliy qonunchilik"]),
+};
+
 // Flatten the questions array for compatibility with existing components
 export const questions: Question[] = [
-  ...questionsByCategory["Davlat tili"],
-  ...questionsByCategory["Axborot kommunikatsiya texnologiyalari"],
-  ...questionsByCategory["IQ"],
-  ...questionsByCategory["Milliy qonunchilik"],
+  ...shuffledQuestionsByCategory["Davlat tili"],
+  ...shuffledQuestionsByCategory["Axborot kommunikatsiya texnologiyalari"],
+  ...shuffledQuestionsByCategory.IQ,
+  ...shuffledQuestionsByCategory["Milliy qonunchilik"],
 ];
+
+// Also export the shuffled questions by category
+export { shuffledQuestionsByCategory as questionsByCategory };
