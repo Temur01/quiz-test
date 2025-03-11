@@ -39,7 +39,6 @@ const ResultsScreen = ({
     });
   }
 
-  // Calculate total score
   const totalScore = Object.values(resultsByCategory).reduce(
     (sum, category) => sum + category.points,
     0,

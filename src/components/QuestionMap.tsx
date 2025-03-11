@@ -1,5 +1,6 @@
 import React from "react";
 import { Question } from "../types";
+import { Check } from "lucide-react";
 
 interface QuestionMapProps {
   currentQuestionIndex: number;
@@ -48,13 +49,19 @@ const QuestionMap: React.FC<QuestionMapProps> = ({
                     onClick={() => onQuestionClick(index)}
                     className={`w-8 h-8 flex items-center justify-center rounded-md text-sm font-medium transition-colors ${
                       isCurrent
-                        ? "bg-gray-100 text-gray-700"
+                        ? "bg-[#7B90C2] text-white shadow-md ring-2 ring-[#A7B7DB]"
                         : isAnswered
-                          ? "bg-gray-100 text-gray-700"
+                          ? "bg-gradient-to-r from-green-400 to-emerald-500 text-white shadow-sm"
                           : "bg-[#8CA1D3] text-white hover:bg-[#8CA1D3]"
                     }`}
                   >
-                    {questionNumber}
+                    {isAnswered && !isCurrent ? (
+                      <div className="flex justify-center items-center">
+                        <Check size={15} />
+                      </div>
+                    ) : (
+                      questionNumber
+                    )}
                   </button>
                 );
               })}
