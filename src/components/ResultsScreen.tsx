@@ -19,7 +19,6 @@ const ResultsScreen = ({
   onRestartQuiz,
   userInfo,
 }: ResultsScreenProps) => {
-  // Calculate results by category
   const resultsByCategory: Record<
     string,
     { total: number; correct: number; points: number }

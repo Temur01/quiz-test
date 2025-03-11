@@ -150,56 +150,6 @@ const QuizApp: React.FC = () => {
                 {currentQuestion.question}
               </p>
 
-              {/* Question content - for image-based questions */}
-              {currentQuestion.id === 1 && (
-                <div className="mb-6 flex justify-center">
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="border border-gray-200 rounded-md p-3 flex justify-center shadow-sm">
-                      <img
-                        src="/question-figure-1.png"
-                        alt="Figure 1"
-                        className="h-20"
-                      />
-                    </div>
-                    <div className="border border-gray-200 rounded-md p-3 flex justify-center shadow-sm">
-                      <img
-                        src="/question-figure-2.png"
-                        alt="Figure 2"
-                        className="h-20"
-                      />
-                    </div>
-                    <div className="border border-gray-200 rounded-md p-3 flex justify-center shadow-sm">
-                      <img
-                        src="/question-figure-3.png"
-                        alt="Figure 3"
-                        className="h-20"
-                      />
-                    </div>
-                    <div className="border border-gray-200 rounded-md p-3 flex justify-center shadow-sm">
-                      <img
-                        src="/question-figure-4.png"
-                        alt="Figure 4"
-                        className="h-20"
-                      />
-                    </div>
-                    <div className="border border-gray-200 rounded-md p-3 flex justify-center shadow-sm">
-                      <img
-                        src="/question-figure-5.png"
-                        alt="Figure 5"
-                        className="h-20"
-                      />
-                    </div>
-                    <div className="border border-gray-200 rounded-md p-3 flex justify-center shadow-sm">
-                      <img
-                        src="/question-figure-6.png"
-                        alt="Figure 6"
-                        className="h-20"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
               <div className="space-y-4">
                 {currentQuestion.options.map((option, index) => {
                   const isSelected = selectedAnswer === option;
@@ -225,33 +175,7 @@ const QuizApp: React.FC = () => {
                             </div>
                           </div>
                           <div className="flex">
-                            {index === 0 && currentQuestion.id === 1 ? (
-                              <div className="border border-gray-200 rounded-md p-3 w-40 h-40 flex justify-center items-center shadow-sm">
-                                <img
-                                  src="/option-a.png"
-                                  alt="Option A"
-                                  className="h-full"
-                                />
-                              </div>
-                            ) : index === 1 && currentQuestion.id === 1 ? (
-                              <div className="border border-gray-200 rounded-md p-3 w-40 h-40 flex justify-center items-center shadow-sm">
-                                <img
-                                  src="/option-b.png"
-                                  alt="Option B"
-                                  className="h-full"
-                                />
-                              </div>
-                            ) : index === 2 && currentQuestion.id === 1 ? (
-                              <div className="border border-gray-200 rounded-md p-3 w-40 h-40 flex justify-center items-center shadow-sm">
-                                <img
-                                  src="/option-c.png"
-                                  alt="Option C"
-                                  className="h-full"
-                                />
-                              </div>
-                            ) : (
-                              <span className="text-gray-800">{option}</span>
-                            )}
+                            <span className="text-gray-800">{option}</span>
                           </div>
                         </div>
                       </label>
