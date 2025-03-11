@@ -17,6 +17,7 @@ export interface PassportData {
   document_giving_date: string;
   document_expiry_date: string;
   document_given_by: string;
+  photo: string;
 }
 
 export interface PassportValidationResponse {
@@ -41,6 +42,7 @@ const emptyPassportData: PassportData = {
   document_giving_date: "",
   document_expiry_date: "",
   document_given_by: "",
+  photo: "",
 };
 
 export const validatePassport = async (

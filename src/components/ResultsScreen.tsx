@@ -10,6 +10,7 @@ interface ResultsScreenProps {
   userInfo?: {
     name: string;
     pin: string;
+    image?: string;
   };
 }
 
@@ -39,64 +40,101 @@ const ResultsScreen = ({
     });
   }
 
+  // Calculate total score
+  const totalScore = Object.values(resultsByCategory).reduce(
+    (sum, category) => sum + category.points,
+    0,
+  );
+
+  // Calculate total correct answers
+  const totalCorrect = Object.values(resultsByCategory).reduce(
+    (sum, category) => sum + category.correct,
+    0,
+  );
+
+  // Calculate total questions
+  const totalQuestionsCount = Object.values(resultsByCategory).reduce(
+    (sum, category) => sum + category.total,
+    0,
+  );
+
+  // Function to check if the image is a valid base64 string
+  const isValidBase64 = (str: string) => {
+    if (!str) return false;
+    try {
+      // Check if it starts with data:image format
+      if (str.startsWith("data:image")) {
+        return true;
+      }
+
+      // Check if it's a raw base64 string
+      return /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$/.test(
+        str,
+      );
+    } catch {
+      return false;
+    }
+  };
+
+  // Prepare the image source with proper format if needed
+  const getImageSrc = (imageStr: string) => {
+    if (!imageStr) return "https://via.placeholder.com/150";
+
+    // If it already starts with data:image, it's already formatted correctly
+    if (imageStr.startsWith("data:image")) {
+      return imageStr;
+    }
+
+    // Otherwise, assume it's a raw base64 string and add the prefix
+    return `data:image/jpeg;base64,${imageStr}`;
+  };
+
   return (
     <div className="max-w-3xl mx-auto p-8 bg-white rounded-lg shadow-lg">
-      <div className="text-center mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">
-          Sinov yakunlandi. Siz natijalaringiz bilan tanishib chiqishingiz
-          mumkin.
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+          Sinov yakunlandi
         </h2>
+        <p className="text-gray-600">
+          Siz natijalaringiz bilan tanishib chiqishingiz mumkin
+        </p>
       </div>
 
       <div className="flex mb-8">
         <div className="w-1/4 pr-6">
           <img
-            src="https://via.placeholder.com/150"
+            src={
+              userInfo?.image && isValidBase64(userInfo.image)
+                ? getImageSrc(userInfo.image)
+                : "https://via.placeholder.com/150"
+            }
             alt="User photo"
-            className="w-32 h-40 object-cover border border-gray-300 shadow-sm"
+            className="w-32 h-40 object-cover border border-gray-300 shadow-sm rounded-md"
           />
         </div>
         <div className="w-3/4">
           <h3 className="font-bold text-xl mb-3 text-gray-800">
             {userInfo?.name || "RAVSHANOV ELYOR AXTAM O'G'LI"}
           </h3>
-          <div className="grid grid-cols-1 gap-2 text-sm">
-            <div className="flex items-center mb-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-2 text-[#33B5F1]"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span className="font-medium text-gray-700">testUzinfocom</span>
-            </div>
+        </div>
+      </div>
 
-            <div className="grid grid-cols-6 gap-y-2">
-              <div className="col-span-3 font-medium text-gray-700">
-                Davogarlık tavoizmi:
-              </div>
-              <div className="col-span-3 text-gray-600">test uchun tavoizm</div>
-
-              <div className="col-span-3 font-medium text-gray-700">
-                Ariza raqami:
-              </div>
-              <div className="col-span-3 text-gray-600">
-                {userInfo?.pin || "680559"}
-              </div>
-
-              <div className="col-span-3 font-medium text-gray-700">
-                Sinov turi:
-              </div>
-              <div className="col-span-3 text-gray-600">
-                Davlat fuqarolik xizmatchisi
-              </div>
-            </div>
+      {/* Score Summary Card */}
+      <div className="bg-gradient-to-r from-[#8CA1D3] to-[#9EAFD9] text-white p-6 rounded-lg shadow-md mb-8">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="text-center">
+            <p className="text-sm font-medium mb-1 opacity-90">Jami savollar</p>
+            <p className="text-3xl font-bold">{totalQuestionsCount}</p>
+          </div>
+          <div className="text-center">
+            <p className="text-sm font-medium mb-1 opacity-90">
+              To'g'ri javoblar
+            </p>
+            <p className="text-3xl font-bold">{totalCorrect}</p>
+          </div>
+          <div className="text-center">
+            <p className="text-sm font-medium mb-1 opacity-90">Umumiy ball</p>
+            <p className="text-3xl font-bold">{totalScore}</p>
           </div>
         </div>
       </div>
@@ -200,27 +238,10 @@ const ResultsScreen = ({
         </table>
       </div>
 
-      <div className="bg-gray-50 p-4 rounded-lg mb-8 border border-gray-200">
-        <div className="grid grid-cols-2 gap-4">
-          <div className="text-sm">
-            <div className="font-medium text-gray-700 mb-1">
-              Sinov boshlangan vaqt:
-            </div>
-            <div className="text-gray-600">25.02.2025 12:01:51</div>
-          </div>
-          <div className="text-sm">
-            <div className="font-medium text-gray-700 mb-1">
-              Sinov yakunlangan vaqt:
-            </div>
-            <div className="text-gray-600">25.02.2025 12:02:05</div>
-          </div>
-        </div>
-      </div>
-
       <div className="text-center">
         <motion.button
           onClick={onRestartQuiz}
-          className="px-8 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors shadow-md hover:shadow-lg"
+          className="px-8 py-3 bg-[#8CA1D3] text-white rounded-lg font-medium hover:bg-[#7B8FC0] transition-all duration-200 shadow-md hover:shadow-lg"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

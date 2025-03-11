@@ -124,8 +124,12 @@ export const PassportAuth = () => {
       const result = await validatePassport(jshshir, passport);
 
       if (result.success && result.data) {
-        console.log(result.data, "data");
-        Cookies.set("user_pin", JSON.stringify(result.data.pin));
+        Cookies.set("user_pin", result.data.pin);
+        localStorage.setItem("user_photo", result.data.photo);
+        Cookies.set(
+          "user_name",
+          result.data.surname_latin + " " + result.data.name_latin,
+        );
         navigate("/face-id");
       } else {
         setErrors((prev) => ({

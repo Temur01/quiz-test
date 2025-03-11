@@ -66,8 +66,6 @@ export const FaceIdAuth = () => {
         setError("Video elementi topilmadi. Iltimos, sahifani qayta yuklang.");
       }
     } catch (err: unknown) {
-      console.error("Camera access error:", err);
-
       if (err instanceof DOMException) {
         if (
           err.name === "NotAllowedError" ||
@@ -128,8 +126,7 @@ export const FaceIdAuth = () => {
     setIsLoading(true);
 
     try {
-      const pin = Cookies.get("user_pin");
-      const user_pin = JSON.parse(pin || "");
+      const user_pin = Cookies.get("user_pin");
 
       if (!user_pin) {
         setError(

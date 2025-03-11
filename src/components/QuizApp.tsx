@@ -12,6 +12,7 @@ const QuizApp: React.FC = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
     pin: "",
+    image: "",
   });
 
   const [quizState, setQuizState] = useState<QuizState>({
@@ -26,7 +27,8 @@ const QuizApp: React.FC = () => {
     // Get user info from cookies
     const name = Cookies.get("user_name") || "RAVSHANOV ELYOR";
     const pin = Cookies.get("user_pin") || "680559";
-    setUserInfo({ name, pin });
+    const image = localStorage.getItem("user_photo") || "";
+    setUserInfo({ name, pin, image });
 
     // Initialize quiz with questions in order
     setQuizState({
@@ -134,10 +136,13 @@ const QuizApp: React.FC = () => {
   return (
     <div className="rounded-lg shadow-lg overflow-hidden p-3">
       <div className="flex flex-col md:flex-row">
-        {/* Left sidebar */}
         <div className="md:w-1/4 me-3">
           <div className="p-5 bg-white shadow-sm rounded-md">
-            <UserInfo name={userInfo.name} pin={userInfo.pin} />
+            <UserInfo
+              name={userInfo.name}
+              pin={userInfo.pin}
+              image={userInfo.image}
+            />
           </div>
 
           <QuestionMap
@@ -177,8 +182,8 @@ const QuizApp: React.FC = () => {
                       <label
                         className={`flex items-start cursor-pointer p-4 rounded-lg border ${
                           isSelected
-                            ? "border-[#33B5F1] bg-blue-50"
-                            : "border-gray-200 hover:border-[#33B5F1] hover:bg-gray-50"
+                            ? "border-[#8CA1D3] bg-blue-50"
+                            : "border-gray-200 hover:border-[#8CA1D3] hover:bg-gray-50"
                         } transition-all duration-200 shadow-sm hover:shadow-md`}
                       >
                         <input
@@ -193,7 +198,7 @@ const QuizApp: React.FC = () => {
                             <div
                               className={`w-5 h-5 rounded-full flex items-center justify-center ${
                                 isSelected
-                                  ? "bg-[#33B5F1] border-2 border-[#33B5F1]"
+                                  ? "bg-[#8CA1D3] border-2 border-[#8CA1D3]"
                                   : "border-2 border-gray-300"
                               }`}
                             >
