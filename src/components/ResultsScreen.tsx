@@ -1,157 +1,155 @@
 import { Question } from "../types";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import {
-  loadCaptchaEnginge,
-  LoadCanvasTemplate,
-  validateCaptcha,
-} from "react-simple-captcha";
 
 interface ResultsScreenProps {
   score: number;
-  questions: Question[];
-  answers: Record<number, string>;
-  onRestartQuiz: () => void;
+  totalQuestions?: number;
+  questions?: Question[];
+  answers?: Record<number, string>;
+  onRestartQuiz?: () => void;
+  userInfo?: {
+    name: string;
+    pin: string;
+  };
 }
 
 const ResultsScreen = ({
-  score,
-  questions,
-  answers,
+  questions = [],
+  answers = {},
   onRestartQuiz,
+  userInfo,
 }: ResultsScreenProps) => {
-  const [showCaptcha, setShowCaptcha] = useState(false);
-  const [captchaValue, setCaptchaValue] = useState("");
-  const [captchaError, setCaptchaError] = useState("");
+  // Calculate results by category
+  const resultsByCategory: Record<
+    string,
+    { total: number; correct: number; points: number }
+  > = {};
 
-  useEffect(() => {
-    if (showCaptcha) {
-      loadCaptchaEnginge(6);
-    }
-  }, [showCaptcha]);
+  if (questions.length > 0) {
+    questions.forEach((question) => {
+      if (!resultsByCategory[question.type]) {
+        resultsByCategory[question.type] = { total: 0, correct: 0, points: 0 };
+      }
 
-  const totalQuestions = questions.length;
-  const correctAnswers = questions.filter(
-    (q) => answers[q.id] === q.correctAnswer,
-  ).length;
-  const incorrectAnswers = totalQuestions - correctAnswers;
-  const percentage = (correctAnswers / totalQuestions) * 100;
+      resultsByCategory[question.type].total += 1;
 
-  const getFeedback = () => {
-    if (percentage >= 90) return "Ajoyib natija!";
-    if (percentage >= 70) return "Yaxshi natija!";
-    if (percentage >= 50) return "O'rtacha natija.";
-    return "Yaxshiroq tayyorlanishingiz kerak.";
-  };
-
-  const handleRestartRequest = () => {
-    setShowCaptcha(true);
-  };
-
-  const handleCaptchaSubmit = () => {
-    if (validateCaptcha(captchaValue)) {
-      setCaptchaError("");
-      setShowCaptcha(false);
-      onRestartQuiz();
-    } else {
-      setCaptchaError("Noto'g'ri CAPTCHA. Iltimos, qayta urinib ko'ring.");
-      loadCaptchaEnginge(6); // Reload captcha
-      setCaptchaValue("");
-    }
-  };
+      if (answers[question.id] === question.correctAnswer) {
+        resultsByCategory[question.type].correct += 1;
+        resultsByCategory[question.type].points += 2.5;
+      }
+    });
+  }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-8">Test natijalarif</h2>
+    <div className="bg-white max-w-3xl mx-auto p-6 rounded-lg shadow">
+      <h2 className="text-center text-lg font-medium mb-4">
+        Sinov yakunlandi. Siz natijalaringiz bilan tanishib chiqishingiz mumkin.
+      </h2>
 
-      <div className="space-y-6">
-        <div className="text-center p-6 bg-blue-50 rounded-lg">
-          <h3 className="text-xl font-semibold mb-2">Umumiy ball</h3>
-          <div className="text-5xl font-bold text-blue-600">{score}</div>
-          <div className="text-sm text-gray-500 mt-2">100 balldan</div>
+      <div className="flex mb-6">
+        <div className="w-1/4">
+          <img
+            src="https://via.placeholder.com/100"
+            alt="User photo"
+            className="w-24 h-32 object-cover border border-gray-300"
+          />
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-green-50 rounded-lg text-center">
-            <h4 className="font-medium text-green-800">To'g'ri javoblar</h4>
-            <div className="text-2xl font-bold text-green-600 mt-2">
-              {correctAnswers}
-            </div>
-          </div>
-
-          <div className="p-4 bg-red-50 rounded-lg text-center">
-            <h4 className="font-medium text-red-800">Noto'g'ri javoblar</h4>
-            <div className="text-2xl font-bold text-red-600 mt-2">
-              {incorrectAnswers}
-            </div>
-          </div>
-
-          <div className="p-4 bg-purple-50 rounded-lg text-center">
-            <h4 className="font-medium text-purple-800">
-              Muvaffaqiyat darajasi
-            </h4>
-            <div className="text-2xl font-bold text-purple-600 mt-2">
-              {percentage.toFixed(1)}%
-            </div>
-          </div>
-        </div>
-
-        <div className="p-6 bg-gray-50 rounded-lg text-center">
-          <h3 className="text-xl font-semibold mb-2">Fikr-mulohaza</h3>
-          <p className="text-gray-700">{getFeedback()}</p>
-        </div>
-
-        <div className="text-center mt-8">
-          {!showCaptcha ? (
-            <motion.button
-              onClick={handleRestartRequest}
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Qayta boshlash
-            </motion.button>
-          ) : (
-            <div className="p-6 bg-gray-50 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">
-                Testni qayta boshlash uchun CAPTCHA-ni tasdiqlang
-              </h3>
-              <div className="flex flex-col items-center space-y-4">
-                <div className="captcha-container">
-                  <LoadCanvasTemplate />
-                </div>
-                <input
-                  type="text"
-                  placeholder="CAPTCHA kodini kiriting"
-                  value={captchaValue}
-                  onChange={(e) => setCaptchaValue(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        <div className="w-3/4">
+          <h3 className="font-bold text-lg mb-1">
+            {userInfo?.name || "RAVSHANOV ELYOR AXTAM O'G'LI"}
+          </h3>
+          <div className="grid grid-cols-6 gap-1 text-sm">
+            <div className="col-span-2 flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 mr-1 text-blue-600"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z"
+                  clipRule="evenodd"
                 />
-                {captchaError && (
-                  <p className="text-red-500 text-sm">{captchaError}</p>
-                )}
-                <div className="flex space-x-4">
-                  <motion.button
-                    onClick={() => setShowCaptcha(false)}
-                    className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Bekor qilish
-                  </motion.button>
-                  <motion.button
-                    onClick={handleCaptchaSubmit}
-                    className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Tasdiqlash
-                  </motion.button>
-                </div>
-              </div>
+              </svg>
+              testUzinfocom
             </div>
-          )}
+            <div className="col-span-4"></div>
+
+            <div className="col-span-3 font-medium">Davogarlık tavoizmi:</div>
+            <div className="col-span-3">test uchun tavoizm</div>
+
+            <div className="col-span-3 font-medium">Ariza raqami:</div>
+            <div className="col-span-3">{userInfo?.pin || "680559"}</div>
+
+            <div className="col-span-3 font-medium">Sinov turi:</div>
+            <div className="col-span-3">Davlat fuqarolik xizmatchisi</div>
+          </div>
         </div>
+      </div>
+
+      <div className="overflow-x-auto mb-6">
+        <table className="min-w-full border-collapse">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="py-2 px-4 border text-left">Fanlar nomi</th>
+              <th className="py-2 px-4 border text-center">Savollar soni</th>
+              <th className="py-2 px-4 border text-center">To'g'ri javoblar</th>
+              <th className="py-2 px-4 border text-center">Ball</th>
+              <th className="py-2 px-4 border text-center">Tili</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="py-2 px-4 border">IQ</td>
+              <td className="py-2 px-4 border text-center">10</td>
+              <td className="py-2 px-4 border text-center">1</td>
+              <td className="py-2 px-4 border text-center">2.5</td>
+              <td className="py-2 px-4 border text-center">O'zbek tili</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border">Davlat tili</td>
+              <td className="py-2 px-4 border text-center">10</td>
+              <td className="py-2 px-4 border text-center">1</td>
+              <td className="py-2 px-4 border text-center">2.5</td>
+              <td className="py-2 px-4 border text-center">O'zbek tili</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border">
+                Axborot-kommunikatsiya texnologiyalari
+              </td>
+              <td className="py-2 px-4 border text-center">10</td>
+              <td className="py-2 px-4 border text-center">1</td>
+              <td className="py-2 px-4 border text-center">2.5</td>
+              <td className="py-2 px-4 border text-center">O'zbek tili</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4 border">Milliy qonunchilik</td>
+              <td className="py-2 px-4 border text-center">10</td>
+              <td className="py-2 px-4 border text-center">0</td>
+              <td className="py-2 px-4 border text-center">0</td>
+              <td className="py-2 px-4 border text-center">O'zbek tili</td>
+            </tr>
+            <tr className="bg-gray-100 font-medium">
+              <td className="py-2 px-4 border">Jami</td>
+              <td className="py-2 px-4 border text-center">40</td>
+              <td className="py-2 px-4 border text-center">3</td>
+              <td className="py-2 px-4 border text-center">7.5</td>
+              <td className="py-2 px-4 border"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="text-center">
+        <motion.button
+          onClick={onRestartQuiz}
+          className="px-8 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Chiqish
+        </motion.button>
       </div>
     </div>
   );

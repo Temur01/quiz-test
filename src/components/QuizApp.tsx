@@ -15,7 +15,7 @@ const QuizApp: React.FC = () => {
   });
 
   const [quizState, setQuizState] = useState<QuizState>({
-    questions: [],
+    questions: [...questions],
     currentQuestionIndex: 0,
     answers: {},
     isCompleted: false,
@@ -76,6 +76,16 @@ const QuizApp: React.FC = () => {
     }
   };
 
+  const handleRestartQuiz = () => {
+    setQuizState({
+      questions: [...questions],
+      currentQuestionIndex: 0,
+      answers: {},
+      score: 0,
+      isCompleted: false,
+    });
+  };
+
   if (quizState.questions.length === 0) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -91,6 +101,7 @@ const QuizApp: React.FC = () => {
         score={quizState.score}
         totalQuestions={totalQuestions}
         userInfo={userInfo}
+        onRestartQuiz={handleRestartQuiz}
       />
     );
   }
