@@ -132,11 +132,11 @@ const QuizApp: React.FC = () => {
   const totalQuestions = quizState.questions.length;
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+    <div className="rounded-lg shadow-lg overflow-hidden p-3">
       <div className="flex flex-col md:flex-row">
         {/* Left sidebar */}
-        <div className="md:w-1/4 border-r border-gray-200 bg-gray-50">
-          <div className="p-5 border-b border-gray-200 bg-white shadow-sm">
+        <div className="md:w-1/4 me-3">
+          <div className="p-5 bg-white shadow-sm rounded-md">
             <UserInfo name={userInfo.name} pin={userInfo.pin} />
           </div>
 
@@ -150,7 +150,7 @@ const QuizApp: React.FC = () => {
         </div>
 
         <div className="md:w-3/4">
-          <div className="flex justify-between items-center p-5 border-b border-gray-200 bg-white shadow-sm">
+          <div className="flex justify-between items-center p-5 rounded-md bg-white shadow-sm">
             <div className="text-lg font-semibold text-gray-800">
               Savol № {currentQuestionNumber}
             </div>

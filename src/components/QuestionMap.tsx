@@ -28,11 +28,11 @@ const QuestionMap: React.FC<QuestionMapProps> = ({
   );
 
   return (
-    <div className="p-5 overflow-auto max-h-[calc(100vh-150px)]">
+    <div>
       {Object.entries(groupedQuestions).map(
         ([type, questionGroup], groupIndex) => (
-          <div key={groupIndex} className="mb-6">
-            <h3 className="text-sm font-medium text-gray-700 mb-3 px-3 py-2 bg-white rounded-md">
+          <div key={groupIndex} className="mt-3 bg-white p-5 rounded-md">
+            <h3 className="text-sm font-medium text-gray-500 mb-3 py-2 pe-3">
               {type}
             </h3>
             <div className="grid grid-cols-5 gap-2.5">
@@ -40,7 +40,6 @@ const QuestionMap: React.FC<QuestionMapProps> = ({
                 const isAnswered = answers[question.id] !== undefined;
                 const isCurrent = index === currentQuestionIndex;
 
-                // Use numbers instead of icons
                 const questionNumber = index + 1;
 
                 return (
