@@ -47,6 +47,14 @@ const QuizApp: React.FC = () => {
         [currentQuestion.id]: answer,
       },
     }));
+
+    setTimeout(() => {
+      if (quizState.currentQuestionIndex < quizState.questions.length - 1) {
+        goToNextQuestion();
+      } else {
+        calculateScore();
+      }
+    }, 300);
   };
 
   const goToNextQuestion = () => {
@@ -84,6 +92,18 @@ const QuizApp: React.FC = () => {
       score: 0,
       isCompleted: false,
     });
+  };
+
+  const calculateScore = () => {
+    const correctAnswers = quizState.questions.filter((question) => {
+      return question.correctAnswer === quizState.answers[question.id];
+    });
+    const score = correctAnswers.length;
+    setQuizState((prev) => ({
+      ...prev,
+      score,
+      isCompleted: true,
+    }));
   };
 
   if (quizState.questions.length === 0) {

@@ -51,7 +51,6 @@ export const FaceIdAuth = () => {
         videoRef.current.srcObject = mediaStream;
         console.log("Video element updated with media stream");
 
-        // Add event listeners to check if video is actually playing
         videoRef.current.onloadedmetadata = () => {
           console.log("Video metadata loaded");
           if (videoRef.current) {
@@ -68,7 +67,6 @@ export const FaceIdAuth = () => {
     } catch (err: unknown) {
       console.error("Camera access error:", err);
 
-      // More specific error messages based on the error type
       if (err instanceof DOMException) {
         if (
           err.name === "NotAllowedError" ||
