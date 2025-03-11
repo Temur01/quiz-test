@@ -129,9 +129,7 @@ const QuizApp: React.FC = () => {
           />
         </div>
 
-        {/* Main content */}
         <div className="md:w-3/4">
-          {/* Header with question number */}
           <div className="flex justify-between items-center p-5 border-b border-gray-200 bg-white">
             <div className="text-base font-medium text-gray-800">
               Savol № {currentQuestionNumber}
@@ -162,15 +160,15 @@ const QuizApp: React.FC = () => {
                           name="answer"
                           checked={isSelected}
                           onChange={() => handleAnswerSelect(option)}
-                          className="mt-1 mr-2 hidden"
+                          className="mt-1 mr-1 hidden"
                         />
                         <div className="flex items-center">
-                          <div className="relative mr-3">
+                          <div className="relative mr-2">
                             <div
-                              className={`w-6 h-6 rounded-md flex items-center justify-center ${isSelected ? "bg-[#8CA1D3] border border-[#8CA1D3]" : "border border-gray-300"}`}
+                              className={`w-4 h-4 rounded-md flex items-center justify-center ${isSelected ? "bg-[#8CA1D3] border border-[#8CA1D3]" : "border border-gray-300"}`}
                             >
                               {isSelected && (
-                                <div className="w-2 h-2 bg-white rounded-sm"></div>
+                                <div className="w-1.5 h-1.5 bg-white rounded-md"></div>
                               )}
                             </div>
                           </div>
