@@ -107,19 +107,40 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
     const handleAnswerSelect = (answer: string) => {
       const currentQuestion =
         quizState.questions[quizState.currentQuestionIndex];
+
+      // Create updated answers object with the new answer
+      const updatedAnswers = {
+        ...quizState.answers,
+        [currentQuestion.id]: answer,
+      };
+
+      // Update state with the new answers
       setQuizState((prev) => ({
         ...prev,
-        answers: {
-          ...prev.answers,
-          [currentQuestion.id]: answer,
-        },
+        answers: updatedAnswers,
       }));
 
       setTimeout(() => {
         if (quizState.currentQuestionIndex < quizState.questions.length - 1) {
           handleNextQuestion();
         } else {
-          completeQuizWithValidation();
+          // For the last question, check if all questions are now answered
+          if (
+            Object.keys(updatedAnswers).length === quizState.questions.length
+          ) {
+            // All questions are answered, complete the quiz
+            setQuizState((prevState) => ({
+              ...prevState,
+              isCompleted: true,
+            }));
+
+            if (onQuizComplete) {
+              onQuizComplete(true);
+            }
+          } else {
+            // Not all questions are answered yet
+            completeQuizWithValidation();
+          }
         }
       }, 300);
     };
@@ -137,13 +158,12 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
       }
     };
 
-    // Renamed to distinguish from the ref-exposed method
     const completeQuizWithValidation = () => {
       const answeredQuestionsCount = Object.keys(quizState.answers).length;
 
-      if (answeredQuestionsCount < 40) {
+      if (answeredQuestionsCount < quizState.questions.length) {
         setShowCompletionError(true);
-        setTimeout(() => setShowCompletionError(false), 5000);
+        setTimeout(() => setShowCompletionError(false), 3000);
         return;
       }
 
@@ -158,7 +178,6 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
     };
 
     const restartQuiz = () => {
-      // Create a new set of shuffled questions with shuffled options for the restart
       const newShuffledQuestions = questions.map((question) => {
         const originalOptions = [...question.options];
         const shuffledOptions = shuffleArray([...originalOptions]);
@@ -219,7 +238,6 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
     }
 
     if (quizState.isCompleted) {
-      // Convert shuffled answers back to original answers format for scoring
       const originalFormatAnswers = Object.entries(quizState.answers).reduce(
         (acc, [questionId, answer]) => {
           acc[questionId] = answer;
@@ -230,7 +248,7 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
 
       return (
         <ResultsScreen
-          questions={questions} // Use original questions for scoring
+          questions={questions}
           answers={originalFormatAnswers}
           onRestartQuiz={restartQuiz}
         />
@@ -270,7 +288,7 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
                 Savol № {currentQuestionNumber}
               </div>
               <div className="text-sm font-medium text-gray-600">
-                Javob berilgan: {answeredQuestionsCount} / 40
+                Javob berilgan: {answeredQuestionsCount} / {totalQuestions}
               </div>
             </div>
 
@@ -369,7 +387,7 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
                   <button
                     onClick={completeQuizWithValidation}
                     className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 flex items-center ${
-                      answeredQuestionsCount >= 40
+                      answeredQuestionsCount >= quizState.questions.length
                         ? "bg-green-600 text-white hover:bg-green-700 shadow-sm hover:shadow-md"
                         : "bg-gray-300 text-gray-600 cursor-not-allowed"
                     }`}
