@@ -30,13 +30,10 @@ const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
   const [showCompletionError, setShowCompletionError] = useState(false);
 
   useEffect(() => {
-    // Get user info from cookies
     const name = Cookies.get("user_name") || "RAVSHANOV ELYOR";
     const pin = Cookies.get("user_pin") || "680559";
     const image = localStorage.getItem("user_photo") || "";
     setUserInfo({ name, pin, image });
-
-    // Initialize quiz with questions in order
     setQuizState({
       questions: [...questions],
       currentQuestionIndex: 0,
@@ -92,7 +89,6 @@ const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
       isCompleted: true,
     }));
 
-    // Notify parent component that quiz is completed
     if (onQuizComplete) {
       onQuizComplete(true);
     }
@@ -107,7 +103,6 @@ const QuizApp: React.FC<QuizAppProps> = ({ onQuizComplete }) => {
       score: 0,
     });
 
-    // Notify parent component that quiz is restarted
     if (onQuizComplete) {
       onQuizComplete(false);
     }

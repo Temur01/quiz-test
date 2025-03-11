@@ -1,6 +1,5 @@
 import React from "react";
 import { Question } from "../types";
-import { Check } from "lucide-react";
 
 interface QuestionMapProps {
   currentQuestionIndex: number;
@@ -57,7 +56,7 @@ const QuestionMap: React.FC<QuestionMapProps> = ({
                   >
                     {isAnswered && !isCurrent ? (
                       <div className="flex justify-center items-center">
-                        <Check size={15} />
+                        {questionNumber}
                       </div>
                     ) : (
                       questionNumber
