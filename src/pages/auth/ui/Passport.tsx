@@ -5,12 +5,10 @@ import Cookies from "js-cookie";
 
 export const PassportAuth = () => {
   const [jshshir, setJshshir] = useState("");
-  const [passportSeria, setPassportSeria] = useState("");
-  const [passportNumber, setPassportNumber] = useState("");
+  const [passport, setPassport] = useState("");
   const [errors, setErrors] = useState<{
     jshshir?: string;
-    passportSeria?: string;
-    passportNumber?: string;
+    passport?: string;
     general?: string;
   }>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -34,47 +32,25 @@ export const PassportAuth = () => {
     return true;
   };
 
-  const validatePassportSeria = (value: string): boolean => {
+  const validatePassportField = (value: string): boolean => {
     if (!value.trim()) {
       setErrors((prev) => ({
         ...prev,
-        passportSeria: "Passport seriyasi kiritilmagan",
+        passport: "Passport ma'lumotlari kiritilmagan",
       }));
       return false;
     }
 
-    const seriaRegex = /^[A-Z]{2}$/;
-    if (!seriaRegex.test(value)) {
+    const passportRegex = /^[A-Z]{2}\d{7}$/;
+    if (!passportRegex.test(value)) {
       setErrors((prev) => ({
         ...prev,
-        passportSeria: "Passport seriyasi 2 bosh harf bo'lishi kerak (AB)",
+        passport: "Passport noto'g'ri formatda (AB1234567)",
       }));
       return false;
     }
 
-    setErrors((prev) => ({ ...prev, passportSeria: undefined }));
-    return true;
-  };
-
-  const validatePassportNumber = (value: string): boolean => {
-    if (!value.trim()) {
-      setErrors((prev) => ({
-        ...prev,
-        passportNumber: "Passport raqami kiritilmagan",
-      }));
-      return false;
-    }
-
-    const numberRegex = /^\d{7}$/;
-    if (!numberRegex.test(value)) {
-      setErrors((prev) => ({
-        ...prev,
-        passportNumber: "Passport raqami 7 raqam bo'lishi kerak (1234567)",
-      }));
-      return false;
-    }
-
-    setErrors((prev) => ({ ...prev, passportNumber: undefined }));
+    setErrors((prev) => ({ ...prev, passport: undefined }));
     return true;
   };
 
@@ -86,37 +62,22 @@ export const PassportAuth = () => {
     }
   };
 
-  const handlePassportSeriaChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const handlePassportChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toUpperCase();
-    setPassportSeria(value);
-    if (errors.passportSeria) {
-      validatePassportSeria(value);
-    }
-  };
-
-  const handlePassportNumberChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    const value = e.target.value;
-    setPassportNumber(value);
-    if (errors.passportNumber) {
-      validatePassportNumber(value);
+    setPassport(value);
+    if (errors.passport) {
+      validatePassportField(value);
     }
   };
 
   const handleSubmit = async () => {
     setErrors({});
     const isJshshirValid = validateJshshir(jshshir);
-    const isPassportSeriaValid = validatePassportSeria(passportSeria);
-    const isPassportNumberValid = validatePassportNumber(passportNumber);
+    const isPassportValid = validatePassportField(passport);
 
-    if (!isJshshirValid || !isPassportSeriaValid || !isPassportNumberValid) {
+    if (!isJshshirValid || !isPassportValid) {
       return;
     }
-
-    const passport = `${passportSeria}${passportNumber}`;
 
     setIsLoading(true);
 
@@ -221,69 +182,39 @@ export const PassportAuth = () => {
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="passport"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Passport <span className="text-red-500">*</span>
           </label>
-          <div className="flex space-x-3">
-            <div className="w-1/3">
-              <input
-                type="text"
-                id="passportSeria"
-                className={`w-full px-4 py-3 border ${errors.passportSeria ? "border-red-500 ring-1 ring-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#33B5F1] focus:border-transparent transition-all duration-200 uppercase`}
-                placeholder="AB"
-                value={passportSeria}
-                onChange={handlePassportSeriaChange}
-                maxLength={2}
-              />
-              {errors.passportSeria && (
-                <p className="mt-2 text-sm text-red-600 flex items-center">
-                  <svg
-                    className="h-4 w-4 mr-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                    />
-                  </svg>
-                  {errors.passportSeria}
-                </p>
-              )}
-            </div>
-            <div className="w-2/3">
-              <input
-                type="number"
-                id="passportNumber"
-                className={`w-full px-4 py-3 border ${errors.passportNumber ? "border-red-500 ring-1 ring-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#33B5F1] focus:border-transparent transition-all duration-200`}
-                placeholder="1234567"
-                value={passportNumber}
-                onChange={handlePassportNumberChange}
-                maxLength={7}
-              />
-              {errors.passportNumber && (
-                <p className="mt-2 text-sm text-red-600 flex items-center">
-                  <svg
-                    className="h-4 w-4 mr-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                    />
-                  </svg>
-                  {errors.passportNumber}
-                </p>
-              )}
-            </div>
-          </div>
+          <input
+            type="text"
+            id="passport"
+            className={`w-full px-4 py-3 border ${errors.passport ? "border-red-500 ring-1 ring-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#33B5F1] focus:border-transparent transition-all duration-200 uppercase`}
+            placeholder="AB1234567"
+            value={passport}
+            onChange={handlePassportChange}
+            maxLength={9}
+          />
+          {errors.passport && (
+            <p className="mt-2 text-sm text-red-600 flex items-center">
+              <svg
+                className="h-4 w-4 mr-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+              {errors.passport}
+            </p>
+          )}
         </div>
 
         <button

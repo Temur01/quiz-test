@@ -51,10 +51,8 @@ const Timer: React.FC<TimerProps> = ({
 
   const { hours, minutes, seconds } = formatTime(timeRemaining);
 
-  // Calculate progress percentage
   const progressPercentage = (timeRemaining / initialTime) * 100;
 
-  // Determine color based on time remaining
   const getTimerColor = () => {
     if (isLowTime) return "from-red-500 to-orange-500";
     if (timeRemaining < initialTime * 0.3)

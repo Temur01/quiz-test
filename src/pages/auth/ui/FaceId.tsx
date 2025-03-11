@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { verifyFace } from "../api/PostFaceId";
 import Cookies from "js-cookie";
+import toast from "react-hot-toast";
 
 export const FaceIdAuth = () => {
   const [error, setError] = useState<string | null>(null);
@@ -144,6 +145,7 @@ export const FaceIdAuth = () => {
         if (stream) {
           stream.getTracks().forEach((track) => track.stop());
         }
+        toast.success("Muvaffaqiyatli ro'yxatdan o'tildi!");
 
         navigate("/quiz");
       } else {
