@@ -1,6 +1,6 @@
-import { createBrowserRouter, RouteObject } from "react-router";
-import { PassportAuth } from "../pages/auth/Passport";
-import { FaceIdAuth } from "../pages/auth/FaceId";
+import { createBrowserRouter, RouteObject } from "react-router-dom";
+import { PassportAuth } from "../pages/auth/ui/Passport";
+import { FaceIdAuth } from "../pages/auth/ui/FaceId";
 import { QuizPage } from "../pages/quiz/Quiz";
 
 const routes: RouteObject[] = [
