@@ -1,11 +1,8 @@
-import QuizApp from "./components/QuizApp";
+import { RouterProvider } from "react-router";
+import { router } from "./router/router";
 
 const App = () => {
-  return (
-    <div className="min-h-screen bg-gray-100 py-8">
-      <QuizApp />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

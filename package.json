@@ -11,9 +11,12 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "axios": "^1.8.2",
     "framer-motion": "^12.4.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router": "^7.3.0",
+    "react-router-dom": "^7.3.0",
     "react-simple-captcha": "^9.3.1"
   },
   "devDependencies": {
