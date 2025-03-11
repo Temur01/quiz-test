@@ -4,7 +4,7 @@ import { validatePassport } from "../api/PostAuth";
 import Cookies from "js-cookie";
 
 export const PassportAuth = () => {
-  const [jshshir, setJshshir] = useState("52008015650053");
+  const [jshshir, setJshshir] = useState("");
   const [passportSeria, setPassportSeria] = useState("");
   const [passportNumber, setPassportNumber] = useState("");
   const [errors, setErrors] = useState<{
