@@ -1,5 +1,5 @@
 import QuizApp from "../../components/QuizApp";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo_uz.png";
 import Timer from "../../components/Timer";
 import { useState, useRef } from "react";
 

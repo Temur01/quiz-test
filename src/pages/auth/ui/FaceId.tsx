@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { verifyFace } from "../api/PostFaceId";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
+import logoUz from "../../../assets/logo_uz.png";
 
 export const FaceIdAuth = () => {
   const [error, setError] = useState<string | null>(null);
@@ -242,19 +243,16 @@ export const FaceIdAuth = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md border border-gray-200">
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">
-            O'zbekiston Respublikasi
-          </h1>
-          <h2 className="text-xl font-semibold text-gray-700 mb-6">
-            Prezident huzuridagi Davlat xizmatlarini rivojlantirish agentligi
-          </h2>
+        <div className="text-center mb-6">
+          <div className="flex justify-center mb-8">
+            <img src={logoUz} alt="O'zbekiston Respublikasi" className="h-14" />
+          </div>
 
-          <div className="w-20 h-1 bg-[#33B5F1] mx-auto mb-6"></div>
+          {/* <div className="w-20 h-1 bg-[#33B5F1] mx-auto mb-4"></div>
 
           <h2 className="text-lg font-medium text-gray-700 mb-2">
             Yuz orqali autentifikatsiya
-          </h2>
+          </h2> */}
         </div>
 
         <div className="mb-8">
