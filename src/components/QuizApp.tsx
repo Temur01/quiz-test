@@ -224,7 +224,7 @@ const QuizApp: React.FC = () => {
                 className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 flex items-center ${
                   quizState.currentQuestionIndex === 0
                     ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-white text-[#33B5F1] border border-[#33B5F1] hover:bg-blue-50 shadow-sm hover:shadow-md"
+                    : "bg-[#8CA1D3] text-white hover:bg-[#7B8FC0] shadow-sm hover:shadow-md"
                 }`}
               >
                 <ChevronLeft size={18} className="mr-2" />
@@ -239,7 +239,7 @@ const QuizApp: React.FC = () => {
 
               <button
                 onClick={goToNextQuestion}
-                className="px-4 py-3 bg-[#33B5F1] text-white rounded-lg font-medium hover:bg-[#1c94c4] transition-all duration-200 flex items-center shadow-sm hover:shadow-md"
+                className="px-4 py-3 bg-[#8CA1D3] text-white rounded-lg font-medium hover:bg-[#7B8FC0] transition-all duration-200 flex items-center shadow-sm hover:shadow-md"
               >
                 Keyingi
                 <ChevronRight size={18} className="ml-2" />

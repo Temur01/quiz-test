@@ -49,10 +49,10 @@ const QuestionMap: React.FC<QuestionMapProps> = ({
                     onClick={() => onQuestionClick(index)}
                     className={`w-8 h-8 flex items-center justify-center rounded-md text-sm font-medium transition-colors ${
                       isCurrent
-                        ? "bg-[#8CA1D3] text-white"
+                        ? "bg-gray-100 text-gray-700"
                         : isAnswered
-                          ? "bg-[#8CA1D3] text-white"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                          ? "bg-gray-100 text-gray-700"
+                          : "bg-[#8CA1D3] text-white hover:bg-[#8CA1D3]"
                     }`}
                   >
                     {questionNumber}

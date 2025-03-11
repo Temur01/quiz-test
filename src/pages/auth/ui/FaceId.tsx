@@ -20,6 +20,7 @@ export const FaceIdAuth = () => {
         stream.getTracks().forEach((track) => track.stop());
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const startWebcam = async () => {
