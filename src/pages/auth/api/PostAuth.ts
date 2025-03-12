@@ -71,16 +71,13 @@ export const validatePassport = async (
       return {
         success: false,
         data: emptyPassportData,
-        error:
-          axiosError.response?.data?.message ||
-          "An error occurred during validation",
+        error: axiosError.response?.data?.message && "Serverda xatolik mavjud!",
       };
     }
     return {
       success: false,
       data: emptyPassportData,
-      error:
-        error instanceof Error ? error.message : "An unknown error occurred",
+      error: "Xatolik yuz berdi",
     };
   }
 };

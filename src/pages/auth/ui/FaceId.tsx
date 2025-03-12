@@ -52,7 +52,6 @@ export const FaceIdAuth = () => {
 
       if (videoRef.current) {
         videoRef.current.srcObject = mediaStream;
-        console.log("Video element updated with media stream");
 
         videoRef.current.onloadedmetadata = () => {
           console.log("Video metadata loaded");

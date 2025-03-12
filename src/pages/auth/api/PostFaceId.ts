@@ -30,14 +30,13 @@ export const verifyFace = async (
       return {
         success: false,
         error:
-          axiosError.response?.data?.message ||
+          axiosError.response?.data?.message &&
           "Yuz tasdiqlashda xatolik yuz berdi",
       };
     }
     return {
       success: false,
-      error:
-        error instanceof Error ? error.message : "Noma'lum xatolik yuz berdi",
+      error: "Xatolik yuz berdi",
     };
   }
 };
