@@ -6,7 +6,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 1,
       question:
-        "Ushbu so‘zlardan nech tasi imloviy jihatdan to‘g‘ri yozilgan? _Muammo, mas’uliyat, yuristkonsult, talofat_",
+        "Ushbu so‘zlardan nechtasi imloviy jihatdan to‘g‘ri yozilgan? Muammo, mas’uliyat, yuristkonsult, talofat",
       options: ["2", "3", "4", "1"],
       correctAnswer: "2",
       type: "Davlat tili",
@@ -14,7 +14,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 2,
       question:
-        "Ushbu so‘zlardan nech tasida imloviy xatolik uchraydi? _Muammo, ma’suliyat, yuriskonsult, talofat_",
+        "Ushbu so‘zlardan nechtasida imloviy xatolik uchraydi? Muammo, mas’uliyat, yuristkonsult, talofat",
       options: ["2", "1", "3", "4"],
       correctAnswer: "2",
       type: "Davlat tili",
@@ -22,7 +22,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 3,
       question:
-        "Ushbu so‘zlardan nech tasi imloviy jihatdan to‘g‘ri yozilgan? _Hasharot, talon-toroj, tanazzul, taxqirlamoq_",
+        "Ushbu so‘zlardan nechtasi imloviy jihatdan to‘g‘ri yozilgan? Hasharot, talon-toroj, tanazzul, taxqirlamoq",
       options: ["2", "4", "3", "1"],
       correctAnswer: "2",
       type: "Davlat tili",
@@ -30,7 +30,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 4,
       question:
-        "Ushbu so‘zlardan nech tasida imloviy xatolik uchraydi? _Hasharot, talon-toroj, tanazzul, taxqirlamoq_",
+        "Ushbu so‘zlardan nech tasida imloviy xatolik uchraydi? Hasharot, talon-toroj, tanazzul, taxqirlamoq",
       options: ["3", "1", "2", "4"],
       correctAnswer: "3",
       type: "Davlat tili",
@@ -38,7 +38,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 5,
       question:
-        "Ushbu so‘zlardan nech tasi imloviy jihatdan to‘g‘ri yozilgan? _Taxlit, to’palon, uvishmoq, uyquchi_",
+        "Ushbu so‘zlardan nech tasi imloviy jihatdan to‘g‘ri yozilgan? Taxlit, to’palon, uvishmoq, uyquchi",
       options: ["1", "2", "3", "4"],
       correctAnswer: "1",
       type: "Davlat tili",
@@ -46,7 +46,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 6,
       question:
-        "Ushbu so‘zlardan nech tasida imloviy xatolik uchraydi? _Taxlit, to’palon, uvishmoq, uyquchi_",
+        "Ushbu so‘zlardan nech tasida imloviy xatolik uchraydi? Taxlit, to’palon, uvishmoq, uyquchi",
       options: ["2", "3", "4", "1"],
       correctAnswer: "2",
       type: "Davlat tili",
@@ -329,129 +329,128 @@ const questionsByCategory: QuestionsByCategory = {
 
   "Milliy qonunchilik": [
     {
-      id: 31,
+      id: 1,
       question:
-        "Davlat fuqarolik xizmati to'g'risidagi qonunchilikka binoan, davlat xizmatchilari qanday majburiyatga ega?",
-      options: [
-        "Qonunlarga qat'iy rioya qilish va kasbiy odobni saqlash",
-        "Davlat organi rahbarining barcha shaxsiy farmoyishlarini so'zsiz bajarish",
-        "Shaxsiy manfaatlarini himoya qilish",
-        "Siyosiy partiyalar faoliyatida faol ishtirok etish",
-      ],
-      correctAnswer: "Qonunlarga qat'iy rioya qilish va kasbiy odobni saqlash",
+        "Muayyan hududda ommaviy hokimiyatni amalga oshiradigan, umummajburiy normalar o‘rnatadigan va suverenitetga ega bo‘lgan siyosiy tashkilot",
+      options: ["Davlat", "Urug‘ jamoasi", "Jamiya", "Ibtidoiy jamoa"],
+      correctAnswer: "Davlat",
       type: "Milliy qonunchilik",
     },
     {
-      id: 32,
+      id: 2,
       question:
-        "O'zbekiston Respublikasida referendum o'tkazish huquqi kimga tegishli?",
+        "Davlat hokimiyatining qaysi ijtimoiy-siyosiy guruhlarga mansubligi va kimning manfaatlariga xizmat qilishi kabi masalalar majmuiga nima deb yuritiladi",
       options: [
-        "Oliy Majlis Qonunchilik palatasi va Senatiga, shuningdek Prezidentga",
-        "Faqat Oliy Majlis saylov komissiyasi tomonidan hal etiladi",
-        "Mahalliy kengashlar birgalikda qaror qiladilar",
-        "Faqat Markaziy saylov komissiyasi tomonidan hal etiladi",
+        "Davlatning Mohiyati",
+        "Davlatning belgilar",
+        "Davlat tipologiyasi",
+        "Davlat hokimiyati",
       ],
-      correctAnswer:
-        "Oliy Majlis Qonunchilik palatasi va Senatiga, shuningdek Prezidentga",
+      correctAnswer: "Davlatning Mohiyati",
       type: "Milliy qonunchilik",
     },
     {
-      id: 33,
+      id: 3,
       question:
-        "Oʻzbekiston Respublikasi Konstitutsiyasiga muvofiq, qaysi organ qonun chiqaruvchi hokimiyatni amalga oshiradi?",
+        "Halqlarning ma’naviy, ahloqiy, diniy va madaniy rivojlanish darajasiga qarab davlatlarni tiplarga ajratish qanday nomlanadi",
       options: [
-        "Oliy Majlis",
-        "Vazirlar Mahkamasi",
-        "Konstitutsiyaviy sud",
-        "Prezident devoni",
+        "Sivilizatsiyaviy yondoshuv",
+        "Formatsion yondoshuv",
+        "Noan’anaviy yondoshuv",
+        "An’anaviy yondoshuv",
       ],
-      correctAnswer: "Oliy Majlis",
+      correctAnswer: "Sivilizatsiyaviy yondoshuv",
       type: "Milliy qonunchilik",
     },
     {
-      id: 34,
+      id: 4,
       question:
-        "Oʻzbekiston Respublikasi Konstitutsiyasiga koʻra, inson va fuqarolarning huquq va erkinliklari qaysi holatda cheklanishi mumkin?",
+        "Davlatning mohiyati to‘g‘risidagi qaysi nazariya vakillari, mavjud davlatlarning ijobiy jihatlarini uyg‘unlashib borishi barobarida ma’lum vaqtdan keyin ular o‘rtasida o‘zaro farqlar yo‘qolib borib yagona tipdagi umumiy farovonlik davlatlari yuzaga keladi deb fikrlashganlar",
       options: [
-        "Faqat qonunda koʻrsatilgan hollarda",
-        "Mahalliy hokimiyat organlarining qaroriga koʻra",
-        "Davlat organlarining xohishiga koʻra",
-        "Jamoat tashkilotlarining talabiga koʻra",
+        "Konvergensiya nazariyasi vakillari",
+        "Umumiy farovonlik nazariyasi vakillari",
+        "Plyuralistik demokratiya nazariyasi vakillari",
+        "Texnokratik nazariyasi vakillari",
       ],
-      correctAnswer: "Faqat qonunda koʻrsatilgan hollarda",
+      correctAnswer: "Konvergensiya nazariyasi vakillari",
       type: "Milliy qonunchilik",
     },
     {
-      id: 35,
+      id: 5,
       question:
-        "Oʻzbekiston Respublikasi Konstitutsiyasiga muvofiq, qaysi organ davlat hokimiyatining oliy vakillik organi hisoblanadi?",
+        "Rivojlangan mamlakatlarda aholi turmush darajasining yuqori ekanligi hamda ijtimoiy, madaniy va boshqa sohalarda yirik davlat dasturlarini amalga oshirilishi ushbu nazariyaning yuzaga kelishiga davlat mohiyati haqidagi qaysi nazariyaning yuzaga kelishiga sabab bo‘lgan",
       options: [
-        "Oliy Majlis",
-        "Vazirlar Mahkamasi",
-        "Konstitutsiyaviy sud",
-        "Prezident Administratsiyasi",
+        "Umumiy farovonlik nazariyasi",
+        "Konvergensiya nazariyasi",
+        "Plyuralistik demokratiya nazariyasi",
+        "Texnokratik nazariyasi",
       ],
-      correctAnswer: "Oliy Majlis",
+      correctAnswer: "Umumiy farovonlik nazariyasi",
       type: "Milliy qonunchilik",
     },
     {
-      id: 36,
+      id: 6,
       question:
-        "Oʻzbekiston Respublikasi Konstitutsiyasiga muvofiq, Prezident qancha muddatga saylanadi?",
-      options: ["5 yil", "4 yil", "7 yil", "6 yil"],
-      correctAnswer: "5 yil",
+        "Davlatning mohiyati to‘g‘risidagi qaysi nazariya vakillari, sotsialistik tipdagi davlatning maqsadi kommunistik jamiyatni barpo etish, ohir-oqibat davlatning barham topishiga erishishdan iborat",
+      options: [
+        "Tarixiy-matérialistk nazariyasi vakillari",
+        "Konvergensiya nazariyasi vakillari",
+        "Umumiy farovonlik nazariyasi vakillari",
+        "Plyuralistik demokratiya nazariyasi vakillari",
+      ],
+      correctAnswer: "Tarixiy-matérialistk nazariyasi vakillari",
       type: "Milliy qonunchilik",
     },
     {
-      id: 37,
+      id: 7,
       question:
-        "Oʻzbekiston Respublikasi Konstitutsiyasiga muvofiq, qaysi organ ijro etuvchi hokimiyatni amalga oshiradi?",
+        "Davlatning maqsad va vazifalarini amalga oshirishga qaratilgan davlat faoliyatining asosiy yo‘nalishi nima deb nomlanadi",
       options: [
-        "Vazirlar Mahkamasi",
-        "Oliy Majlis",
-        "Konstitutsiyaviy sud",
-        "Oliy sud",
+        "Davlat funksiyasi",
+        "Davlat boshqaruvi",
+        "Davlat hokimiyati",
+        "Davlat faoliyati",
       ],
-      correctAnswer: "Vazirlar Mahkamasi",
+      correctAnswer: "Davlat funksiyasi",
       type: "Milliy qonunchilik",
     },
     {
-      id: 38,
+      id: 8,
       question:
-        "Oʻzbekiston Respublikasi Konstitutsiyasiga muvofiq, qaysi organ sud hokimiyatini amalga oshiradi?",
+        "Davlat faoliyatini yo‘naltiruvchi va tartibga soluvchi, uning bajarilishi lozim bo‘lgan vazifalari ketma-ketligi va xarakterini belgilab beruvchi bevosita motivi bo‘lib maydonga chiqadigan hususiyat qaysi tushunchaga tegishli",
       options: [
-        "Konstitutsiyaviy sud, Oliy sud, sudlar",
-        "Adliya vazirligi",
-        "Bosh prokuratura",
-        "Milliy gvardiya",
+        "Davlat maqsadi",
+        "Davlat funksiyasi",
+        "Davlat vazifasi",
+        "Davlat faoliyati",
       ],
-      correctAnswer: "Konstitutsiyaviy sud, Oliy sud, sudlar",
+      correctAnswer: "Davlat maqsadi",
       type: "Milliy qonunchilik",
     },
     {
-      id: 39,
+      id: 9,
       question:
-        "Oʻzbekiston Respublikasi Konstitutsiyasiga muvofiq, qaysi organ qonunlarning konstitutsiyaviyligini nazorat qiladi?",
+        "Davlat funksiyalarini faoliyat darajasi bo‘yicha qanday turlarga ajratishimiz mumkin",
       options: [
-        "Konstitutsiyaviy sud",
-        "Oliy sud",
-        "Bosh prokuratura",
-        "Adliya vazirligi",
+        "Ichki va tashqi funksiya",
+        "Doimiy va muvaqqat funksiya",
+        "Asosiy va asosiy bo‘lmagan funksiya",
+        "Davlat va nodavlat funksiyalar",
       ],
-      correctAnswer: "Konstitutsiyaviy sud",
+      correctAnswer: "Ichki va tashqi funksiya",
       type: "Milliy qonunchilik",
     },
     {
-      id: 40,
+      id: 10,
       question:
-        "Oʻzbekiston Respublikasi Konstitutsiyasiga muvofiq, qaysi organ davlat byudjetini qabul qiladi?",
+        "Davlat funksiyalarini amalga oshirishning huquqiy shakllari bo‘yicha davlat funksiyasini qanday tasniflanadi",
       options: [
-        "Oliy Majlis",
-        "Vazirlar Mahkamasi",
-        "Prezident",
-        "Moliya vazirligi",
+        "Huquq ijodkorligi, ijro etish, huquqni muhofaza qilish",
+        "Huquqni tartibga soluvchi, huquqni iero etuvchi, huquqni paydo qiluvchi",
+        "Tashkiliy tartibga soluvchi, tashkiliy-xo‘jalik, tashkiliy-mafkuraviy",
+        "Huquqni amalga oshiruvchi, huquqni ta’minlovchi, huquqni ta’qiqlovchi",
       ],
-      correctAnswer: "Oliy Majlis",
+      correctAnswer: "Huquq ijodkorligi, ijro etish, huquqni muhofaza qilish",
       type: "Milliy qonunchilik",
     },
   ],
