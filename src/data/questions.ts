@@ -1,4 +1,14 @@
 import { Question, QuestionsByCategory } from "../types";
+import ques_1 from "../assets/iq/1.jpg";
+import ques_2 from "../assets/iq/2.jpg";
+import ques_3 from "../assets/iq/3.jpg";
+import ques_4 from "../assets/iq/4.jpg";
+import ques_5 from "../assets/iq/5.jpg";
+import ques_6 from "../assets/iq/6.jpg";
+import ques_7 from "../assets/iq/7.jpg";
+import ques_8 from "../assets/iq/8.jpg";
+import ques_9 from "../assets/iq/9.jpg";
+import ques_10 from "../assets/iq/10.jpg";
 
 // Define questions by category
 const questionsByCategory: QuestionsByCategory = {
@@ -97,7 +107,7 @@ const questionsByCategory: QuestionsByCategory = {
       question:
         "Ushbu gapda nuqtalar o‘rniga qo‘yilishi lozim bo‘lgan qo‘shimchalar ketma-ketligi to‘g‘ri berilgan javobni aniqlang. _Xalqaro aloqalar… qabul qilingan tijorat xatlari… hozirgi shakli, u… yozilish odobi 150 yil muqaddam Angliya… yuzaga kelgan._",
       options: [
-        "-da, -ning, -ning, -da",
+        "-da, -ning, -ni, -da",
         "-da, -ni, -ning, -ga",
         "-ga, -ning, -ni, -da",
         "-da, -ning, -ni, -da",
@@ -123,14 +133,14 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 22,
       question:
-        "Matnni formatlash, hujjatga grafika va boshqa ob’ektlar joylash imkoniyatini beradigan dastur nima deb aytiladi?",
+        "Matnlar taxrirlovchisi kop amalli dasturdan iborat matn muharriri nima?",
       options: [
-        "Matn pressorlari",
-        "Matn muharrirlari",
-        "elektron jadvallar",
-        "elektron pressorlari",
+        "Microsoft Word 97",
+        "Microsoft oce 97",
+        "Excel",
+        "Microsoft 79",
       ],
-      correctAnswer: "Matn pressorlari",
+      correctAnswer: "Microsoft Word 97",
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
@@ -454,84 +464,75 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
   ],
-
   IQ: [
     {
-      id: 21,
-      question:
-        "Agar 8 ishchi bir ishni 6 kunda bajarsa, xuddi shu ishni 12 ishchi necha kunda bajaradi?",
-      options: ["4", "5", "3", "2"],
+      id: 1,
+      question: ques_1,
+      options: ["31", "28", "29", "30", "32", "33"],
+      correctAnswer: "31",
+      type: "IQ",
+    },
+    {
+      id: 2,
+      question: ques_2,
+      options: ["2", "1", "3", "4"],
+      correctAnswer: "2",
+      type: "IQ",
+    },
+    {
+      id: 3,
+      question: ques_3,
+      options: ["3", "1", "2", "4"],
+      correctAnswer: "3",
+      type: "IQ",
+    },
+    {
+      id: 4,
+      question: ques_4,
+      options: ["1", "2", "3", "4", "5"],
+      correctAnswer: "1",
+      type: "IQ",
+    },
+    {
+      id: 5,
+      question: ques_5,
+      options: ["4", "1", "2", "3", "5", "6"],
       correctAnswer: "4",
       type: "IQ",
     },
     {
-      id: 22,
-      question:
-        "Quyidagi ketma-ketlikdagi keyingi son qaysi? 2, 4, 8, 16, 32, ...",
-      options: ["64", "48", "56", "40"],
-      correctAnswer: "64",
+      id: 6,
+      question: ques_6,
+      options: ["3", "1", "2", "4", "5", "6"],
+      correctAnswer: "3",
       type: "IQ",
     },
     {
-      id: 23,
-      question: "Agar 3 + 3 × 3 - 3 ÷ 3 = ? bo'lsa, natija nechiga teng?",
-      options: ["9", "10", "11", "12"],
-      correctAnswer: "11",
+      id: 7,
+      question: ques_7,
+      options: ["3,5", "3,6", "1,3", "1,5", "2,5", "2,6"],
+      correctAnswer: "3,5",
       type: "IQ",
     },
     {
-      id: 24,
-      question:
-        "Agar bugun dushanba bo'lsa, 100 kundan keyin qanday kun bo'ladi?",
-      options: ["Dushanba", "Seshanba", "Chorshanba", "Payshanba"],
-      correctAnswer: "Chorshanba",
+      id: 8,
+      question: ques_8,
+      options: ["5", "1", "2", "3", "4", "6"],
+      correctAnswer: "5",
       type: "IQ",
     },
     {
-      id: 25,
-      question:
-        "5 ta ketma-ket juft sonlar yig'indisi 70 ga teng. Eng kichik son qaysi?",
-      options: ["10", "8", "6", "4"],
-      correctAnswer: "10",
+      id: 9,
+      question: ques_9,
+      options: ["2", "1", "5", "3", "4"],
+      correctAnswer: "2",
       type: "IQ",
     },
     {
-      id: 26,
-      question:
-        "Quyidagi ketma-ketlikda keyingi son qaysi? 1, 4, 9, 16, 25, ...",
-      options: ["36", "49", "35", "30"],
-      correctAnswer: "36",
-      type: "IQ",
-    },
-    {
-      id: 27,
-      question: "Agar 3 × 5 = 15, 4 × 6 = 24, 5 × 7 = 35 bo'lsa, 8 × 9 = ?",
-      options: ["72", "63", "81", "64"],
-      correctAnswer: "72",
-      type: "IQ",
-    },
-    {
-      id: 28,
-      question:
-        "Agar A = 1, B = 2, C = 3 ... Z = 26 bo'lsa, 'CODE' so'zidagi harflar qiymatlarining yig'indisi nechiga teng?",
-      options: ["27", "30", "25", "32"],
-      correctAnswer: "27",
-      type: "IQ",
-    },
-    {
-      id: 29,
-      question:
-        "Quyidagi ketma-ketlikda keyingi son qaysi? 2, 6, 12, 20, 30, ...",
-      options: ["42", "40", "36", "48"],
-      correctAnswer: "42",
-      type: "IQ",
-    },
-    {
-      id: 30,
-      question:
-        "Agar bir quti qizil, ko'k va yashil sharlardan iborat bo'lsa, ko'zi bog'langan holda kamida nechta shar olish kerak bo'ladi, har bir rangdan kamida bittadan shar olish uchun?",
-      options: ["7", "6", "3", "4"],
-      correctAnswer: "7",
+      id: 10,
+      question: ques_10,
+      options: ["4", "1", "2", "3", "5"],
+      correctAnswer: "4",
       type: "IQ",
     },
   ],

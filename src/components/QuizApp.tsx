@@ -309,9 +309,19 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
               className="p-6"
             >
               <div className="mb-8">
-                <p className="text-lg mb-8 text-gray-800 leading-relaxed font-medium">
-                  {currentQuestion.question}
-                </p>
+                {currentQuestion.type === "IQ" ? (
+                  <div className="flex justify-center mb-8">
+                    <img
+                      src={currentQuestion.question}
+                      alt="IQ Test Question"
+                      className="w-1/2 h-1/2 rounded-lg shadow-sm"
+                    />
+                  </div>
+                ) : (
+                  <p className="text-lg mb-8 text-gray-800 leading-relaxed font-medium">
+                    {currentQuestion.question}
+                  </p>
+                )}
 
                 <div className="space-y-4">
                   {currentQuestion.options.map((option, index) => {

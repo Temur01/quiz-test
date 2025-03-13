@@ -43,27 +43,17 @@ export const FaceIdAuth = () => {
         audio: false,
       });
 
-      console.log(
-        "Camera access granted:",
-        mediaStream.getVideoTracks().length > 0,
-      );
-
       setStream(mediaStream);
 
       if (videoRef.current) {
         videoRef.current.srcObject = mediaStream;
 
         videoRef.current.onloadedmetadata = () => {
-          console.log("Video metadata loaded");
           if (videoRef.current) {
-            videoRef.current
-              .play()
-              .then(() => console.log("Video playback started"))
-              .catch((e) => console.error("Video playback failed:", e));
+            videoRef.current.play();
           }
         };
       } else {
-        console.error("Video reference is null");
         setError("Video elementi topilmadi. Iltimos, sahifani qayta yuklang.");
       }
     } catch (err: unknown) {
@@ -152,8 +142,7 @@ export const FaceIdAuth = () => {
         setError(result.error || "Yuz tasdiqlashda xatolik yuz berdi");
         setCapturedImage(null);
       }
-    } catch (error: unknown) {
-      console.error("Face verification error:", error);
+    } catch {
       setError("Kutilmagan xatolik yuz berdi");
       setCapturedImage(null);
     } finally {

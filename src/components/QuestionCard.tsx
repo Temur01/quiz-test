@@ -20,6 +20,10 @@ const QuestionCard = ({
     onSelectAnswer(option);
   };
 
+  // Check if the question is an IQ question with an image path
+  const isIQQuestion =
+    question.type === "IQ" && question.question.startsWith("assets/");
+
   return (
     <div className="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto">
       <div className="flex justify-between items-center mb-4">
@@ -30,9 +34,21 @@ const QuestionCard = ({
           2.5 ball
         </span>
       </div>
-      
-      <h3 className="text-lg font-medium text-gray-900 mb-6">{question.question}</h3>
-      
+
+      {isIQQuestion ? (
+        <div className="mb-6 flex justify-center">
+          <img
+            src={question.question}
+            alt="IQ Test Question"
+            className="max-w-[70%] h-auto rounded-lg shadow-sm"
+          />
+        </div>
+      ) : (
+        <h3 className="text-lg font-medium text-gray-900 mb-6">
+          {question.question}
+        </h3>
+      )}
+
       <div className="space-y-3">
         {question.options.map((option) => (
           <motion.button
