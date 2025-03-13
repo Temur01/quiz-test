@@ -118,7 +118,7 @@ const questionsByCategory: QuestionsByCategory = {
   ],
   "Axborot kommunikatsiya texnologiyalari": [
     {
-      id: 21,
+      id: 11,
       question:
         "Asosan matnli fayllarni formatlash elementlari ishlatilmasdan tayyorlaydigan dasturlarga nima deb aytiladi?",
       options: [
@@ -131,7 +131,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 22,
+      id: 12,
       question:
         "Matnlar taxrirlovchisi kop amalli dasturdan iborat matn muharriri nima?",
       options: [
@@ -144,7 +144,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 23,
+      id: 13,
       question:
         "Klaviatura yordamida kiritiladigan va monitor ekranida ko‘rinadigan xar qanday harf, raqam, tinish belgisi, arifmetik amal belgisi nima deb ataladi?",
       options: ["Belgi", "So‘z", "Abzas", "Matn"],
@@ -152,7 +152,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 24,
+      id: 14,
       question:
         "Windows o.t da ishlaydigan matn muharrirlariga kiruvchi dasturlar.",
       options: [
@@ -165,7 +165,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 25,
+      id: 15,
       question:
         "Amaldagi Microsoft Office Word 2016 versiyasi uchun mo‘ljallangan operatsion tizim .",
       options: ["Windows va MacOS", "Unix", "Linux", "MsDos"],
@@ -173,7 +173,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 26,
+      id: 16,
       question:
         "Mexanik mashinalargacha bo‘lgan davrdagi sun’iy hisoblash vositalarini aniqlang.",
       options: [
@@ -186,14 +186,14 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 27,
+      id: 17,
       question: "Quyidagi tezkor tugmalardan qaysi biri YANGI",
       options: ["Ctrl + N", "Ctrl + 0", "Ctrl + F12", "Ctrl + W"],
       correctAnswer: "Ctrl + N",
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 28,
+      id: 18,
       question:
         "Matnlar taxrirlovchisi kop amalli dasturdan iborat matn muharriri nima?",
       options: [
@@ -206,7 +206,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 29,
+      id: 19,
       question:
         "Klaviaturaning qaysi klavishlarini bosish orqali matnni yakunlash mumkin?",
       options: ["Alt + F4", "Alt + F1", "'Alt + Ctrl' po'radke", "Alt + F12"],
@@ -214,7 +214,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 30,
+      id: 20,
       question:
         "Excel dasturida matematik funksiyalardan PRODUCT nimani hisoblaydi?",
       options: [
@@ -227,7 +227,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 31,
+      id: 21,
       question:
         "Excel dasturida jadvaldagi barcha kataklarni ajratish uchun qaysi qoshutmadan foydalaniladi?",
       options: ["Ctrl + A", "Ctrl + Shift", "Ctrl + Alt", "Ctrl + D"],
@@ -235,7 +235,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 32,
+      id: 22,
       question:
         "Power Point dasturida yangi taqdimot yaratish uchun qanday menyuga kiriladi va u yerdan qanday buyruq bosiladi?",
       options: [
@@ -248,7 +248,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 33,
+      id: 23,
       question:
         "Microsoft Word dasturining eng so‘nggi versiyalarida qaysi yangi imkoniyatlar mavjud?",
       options: [
@@ -261,7 +261,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 34,
+      id: 24,
       question:
         "Microsoft Word dasturida matnni qalin (bold) qilish uchun qanday tugmalar ishlatiladi?",
       options: ["Ctrl+B", "Ctrl+U", "Ctrl+H", "Ctrl+S"],
@@ -269,7 +269,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 35,
+      id: 25,
       question: "Excel dasturida “IF” funksiyasi qanday ishlatiladi?",
       options: [
         "Belgilangandan shartga qarab qiymatni tanlash",
@@ -281,7 +281,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 36,
+      id: 26,
       question:
         "Power point dasturida “Hyuperlink’’ funksiyasi nima uchun ishlatiladi?",
       options: [
@@ -295,14 +295,14 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 37,
+      id: 27,
       question: "Quidagilardan qaysi biri MC Office tarkibiga kirmaydi?",
       options: ["WordPad", "Publisher", "Outlook", "Access"],
       correctAnswer: "WordPad",
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 38,
+      id: 28,
       question:
         "Quidagilardan qaysi biri axborotni himoya qilishning eng yaxshi usullaridan biri?",
       options: [
@@ -315,7 +315,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 39,
+      id: 29,
       question:
         "Axborotlarni kompyuterning xotirasiga grafikli axborot sifatida ko‘chiradigan qurilmaning nomini aniqlang.",
       options: ["Skaner", "Plotter", "Monitor", "Klaviatura"],
@@ -323,7 +323,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Axborot kommunikatsiya texnologiyalari",
     },
     {
-      id: 40,
+      id: 30,
       question:
         "Masofaviy ta’limda, ta’lim jarayonini qo‘llab-quvvatlovchi, elektron shaklda taqdim etilgan darsliklar va ilmiy adabiyotlar.",
       options: [
@@ -339,7 +339,7 @@ const questionsByCategory: QuestionsByCategory = {
 
   "Milliy qonunchilik": [
     {
-      id: 1,
+      id: 31,
       question:
         "Muayyan hududda ommaviy hokimiyatni amalga oshiradigan, umummajburiy normalar o‘rnatadigan va suverenitetga ega bo‘lgan siyosiy tashkilot",
       options: ["Davlat", "Urug‘ jamoasi", "Jamiya", "Ibtidoiy jamoa"],
@@ -347,7 +347,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 2,
+      id: 32,
       question:
         "Davlat hokimiyatining qaysi ijtimoiy-siyosiy guruhlarga mansubligi va kimning manfaatlariga xizmat qilishi kabi masalalar majmuiga nima deb yuritiladi",
       options: [
@@ -360,7 +360,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 3,
+      id: 33,
       question:
         "Halqlarning ma’naviy, ahloqiy, diniy va madaniy rivojlanish darajasiga qarab davlatlarni tiplarga ajratish qanday nomlanadi",
       options: [
@@ -373,7 +373,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 4,
+      id: 34,
       question:
         "Davlatning mohiyati to‘g‘risidagi qaysi nazariya vakillari, mavjud davlatlarning ijobiy jihatlarini uyg‘unlashib borishi barobarida ma’lum vaqtdan keyin ular o‘rtasida o‘zaro farqlar yo‘qolib borib yagona tipdagi umumiy farovonlik davlatlari yuzaga keladi deb fikrlashganlar",
       options: [
@@ -386,7 +386,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 5,
+      id: 35,
       question:
         "Rivojlangan mamlakatlarda aholi turmush darajasining yuqori ekanligi hamda ijtimoiy, madaniy va boshqa sohalarda yirik davlat dasturlarini amalga oshirilishi ushbu nazariyaning yuzaga kelishiga davlat mohiyati haqidagi qaysi nazariyaning yuzaga kelishiga sabab bo‘lgan",
       options: [
@@ -399,7 +399,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 6,
+      id: 36,
       question:
         "Davlatning mohiyati to‘g‘risidagi qaysi nazariya vakillari, sotsialistik tipdagi davlatning maqsadi kommunistik jamiyatni barpo etish, ohir-oqibat davlatning barham topishiga erishishdan iborat",
       options: [
@@ -412,7 +412,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 7,
+      id: 37,
       question:
         "Davlatning maqsad va vazifalarini amalga oshirishga qaratilgan davlat faoliyatining asosiy yo‘nalishi nima deb nomlanadi",
       options: [
@@ -425,7 +425,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 8,
+      id: 38,
       question:
         "Davlat faoliyatini yo‘naltiruvchi va tartibga soluvchi, uning bajarilishi lozim bo‘lgan vazifalari ketma-ketligi va xarakterini belgilab beruvchi bevosita motivi bo‘lib maydonga chiqadigan hususiyat qaysi tushunchaga tegishli",
       options: [
@@ -438,7 +438,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 9,
+      id: 39,
       question:
         "Davlat funksiyalarini faoliyat darajasi bo‘yicha qanday turlarga ajratishimiz mumkin",
       options: [
@@ -451,7 +451,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 10,
+      id: 40,
       question:
         "Davlat funksiyalarini amalga oshirishning huquqiy shakllari bo‘yicha davlat funksiyasini qanday tasniflanadi",
       options: [
@@ -466,70 +466,70 @@ const questionsByCategory: QuestionsByCategory = {
   ],
   IQ: [
     {
-      id: 1,
+      id: 41,
       question: ques_1,
       options: ["31", "28", "29", "30", "32", "33"],
       correctAnswer: "31",
       type: "IQ",
     },
     {
-      id: 2,
+      id: 42,
       question: ques_2,
       options: ["2", "1", "3", "4"],
       correctAnswer: "2",
       type: "IQ",
     },
     {
-      id: 3,
+      id: 43,
       question: ques_3,
       options: ["3", "1", "2", "4"],
       correctAnswer: "3",
       type: "IQ",
     },
     {
-      id: 4,
+      id: 44,
       question: ques_4,
       options: ["1", "2", "3", "4", "5"],
       correctAnswer: "1",
       type: "IQ",
     },
     {
-      id: 5,
+      id: 45,
       question: ques_5,
       options: ["4", "1", "2", "3", "5", "6"],
       correctAnswer: "4",
       type: "IQ",
     },
     {
-      id: 6,
+      id: 46,
       question: ques_6,
       options: ["3", "1", "2", "4", "5", "6"],
       correctAnswer: "3",
       type: "IQ",
     },
     {
-      id: 7,
+      id: 47,
       question: ques_7,
       options: ["3,5", "3,6", "1,3", "1,5", "2,5", "2,6"],
       correctAnswer: "3,5",
       type: "IQ",
     },
     {
-      id: 8,
+      id: 48,
       question: ques_8,
       options: ["5", "1", "2", "3", "4", "6"],
       correctAnswer: "5",
       type: "IQ",
     },
     {
-      id: 9,
+      id: 49,
       question: ques_9,
       options: ["2", "1", "5", "3", "4"],
       correctAnswer: "2",
       type: "IQ",
     },
     {
-      id: 10,
+      id: 50,
       question: ques_10,
       options: ["4", "1", "2", "3", "5"],
       correctAnswer: "4",
@@ -560,10 +560,12 @@ const shuffledQuestionsByCategory: QuestionsByCategory = {
 
 // Flatten the questions array for compatibility with existing components
 export const questions: Question[] = [
-  ...shuffledQuestionsByCategory["Davlat tili"],
-  ...shuffledQuestionsByCategory["Milliy qonunchilik"],
-  ...shuffledQuestionsByCategory["Axborot kommunikatsiya texnologiyalari"],
-  ...shuffledQuestionsByCategory.IQ,
+  ...shuffledQuestionsByCategory["Davlat tili"].slice(0, 10),
+  ...shuffledQuestionsByCategory["Milliy qonunchilik"].slice(0, 10),
+  ...shuffledQuestionsByCategory[
+    "Axborot kommunikatsiya texnologiyalari"
+  ].slice(0, 10),
+  ...shuffledQuestionsByCategory.IQ.slice(0, 10),
 ];
 
 // Also export the shuffled questions by category
