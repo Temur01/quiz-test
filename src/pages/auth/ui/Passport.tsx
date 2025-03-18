@@ -116,10 +116,6 @@ export const PassportAuth = () => {
           <div className="flex justify-center mb-8">
             <img src={logoUz} alt="O'zbekiston Respublikasi" className="h-14" />
           </div>
-
-          {/* <div className="w-20 h-1 bg-[#33B5F1] mx-auto mb-4"></div> */}
-
-          {/* <h2 className="text-lg font-medium text-gray-700">Tizimga kirish</h2> */}
         </div>
 
         {errors.general && (
@@ -154,7 +150,7 @@ export const PassportAuth = () => {
             type="number"
             id="jshshir"
             className={`w-full px-4 py-3 border ${errors.jshshir ? "border-red-500 ring-1 ring-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#33B5F1] focus:border-transparent transition-all duration-200`}
-            placeholder="52008015650010"
+            placeholder="42138025651510"
             value={jshshir}
             onChange={handleJshshirChange}
             maxLength={14}

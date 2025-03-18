@@ -92,7 +92,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 9,
       question:
-        "Ushbu gapdagi nuqtalar o‘rniga qo‘shimchalar ketma-ketligi to‘g‘ri berilgan javobni aniqlang. _Mehnat shartnomasi bekor qilingan kuni ma’muriyat xodim… u… mehnat daftarchasi… va mehnat shartnomasi… bekor qilinganligi haqidagi buyruq nusxasi… berishi shart._",
+        "Ushbu gapdagi nuqtalar o‘rniga qo‘shimchalar ketma-ketligi to‘g‘ri berilgan javobni aniqlang. Mehnat shartnomasi bekor qilingan kuni ma’muriyat xodim… u… mehnat daftarchasi… va mehnat shartnomasi… bekor qilinganligi haqidagi buyruq nusxasi… berishi shart.",
       options: [
         "-ga, -ning, -ni, -ning, -ni",
         "-da, -ni, -ning, -ning, -ni",
@@ -105,12 +105,12 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 10,
       question:
-        "Ushbu gapda nuqtalar o‘rniga qo‘yilishi lozim bo‘lgan qo‘shimchalar ketma-ketligi to‘g‘ri berilgan javobni aniqlang. _Xalqaro aloqalar… qabul qilingan tijorat xatlari… hozirgi shakli, u… yozilish odobi 150 yil muqaddam Angliya… yuzaga kelgan._",
+        "Ushbu gapda nuqtalar o‘rniga qo‘yilishi lozim bo‘lgan qo‘shimchalar ketma-ketligi to‘g‘ri berilgan javobni aniqlang. Xalqaro aloqalar… qabul qilingan tijorat xatlari… hozirgi shakli, u… yozilish odobi 150 yil muqaddam Angliya… yuzaga kelgan.",
       options: [
         "-da, -ning, -ni, -da",
         "-da, -ni, -ning, -ga",
         "-ga, -ning, -ni, -da",
-        "-da, -ning, -ni, -da",
+        "-da, -ning, -ni, -ni",
       ],
       correctAnswer: "-da, -ning, -ni, -da",
       type: "Davlat tili",
@@ -167,7 +167,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 15,
       question:
-        "Amaldagi Microsoft Office Word 2016 versiyasi uchun mo‘ljallangan operatsion tizim .",
+        "Amaldagi Microsoft Office Word 2016 versiyasi uchun mo‘ljallangan operatsion tizim.",
       options: ["Windows va MacOS", "Unix", "Linux", "MsDos"],
       correctAnswer: "Windows va MacOS",
       type: "Axborot kommunikatsiya texnologiyalari",
@@ -187,7 +187,8 @@ const questionsByCategory: QuestionsByCategory = {
     },
     {
       id: 17,
-      question: "Quyidagi tezkor tugmalardan qaysi biri YANGI",
+      question:
+        "Quyidagi tezkor tugmalardan qaysi biri YANGI DOKUMENT yaratish tugmasi?",
       options: ["Ctrl + N", "Ctrl + 0", "Ctrl + F12", "Ctrl + W"],
       correctAnswer: "Ctrl + N",
       type: "Axborot kommunikatsiya texnologiyalari",
@@ -283,7 +284,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 26,
       question:
-        "Power point dasturida “Hyuperlink’’ funksiyasi nima uchun ishlatiladi?",
+        "Power point dasturida “Hyuperlink” funksiyasi nima uchun ishlatiladi?",
       options: [
         "Hujjatlarni tashqi manbalarni yoki internet sahifalarini bog‘lash uchun",
         "Matnni qalin qilish",
@@ -342,7 +343,7 @@ const questionsByCategory: QuestionsByCategory = {
       id: 31,
       question:
         "Muayyan hududda ommaviy hokimiyatni amalga oshiradigan, umummajburiy normalar o‘rnatadigan va suverenitetga ega bo‘lgan siyosiy tashkilot",
-      options: ["Davlat", "Urug‘ jamoasi", "Jamiya", "Ibtidoiy jamoa"],
+      options: ["Davlat", "Urug jamoasi", "Jamiya", "Ibtidoiy jamoa"],
       correctAnswer: "Davlat",
       type: "Milliy qonunchilik",
     },
@@ -403,7 +404,7 @@ const questionsByCategory: QuestionsByCategory = {
       question:
         "Davlatning mohiyati to‘g‘risidagi qaysi nazariya vakillari, sotsialistik tipdagi davlatning maqsadi kommunistik jamiyatni barpo etish, ohir-oqibat davlatning barham topishiga erishishdan iborat",
       options: [
-        "Tarixiy-matérialistk nazariyasi vakillari",
+        "Tarixiy-matarialistk nazariyasi vakillari",
         "Konvergensiya nazariyasi vakillari",
         "Umumiy farovonlik nazariyasi vakillari",
         "Plyuralistik demokratiya nazariyasi vakillari",
