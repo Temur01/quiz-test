@@ -340,7 +340,7 @@ const questionsByCategory: QuestionsByCategory = {
 
   "Milliy qonunchilik": [
     {
-      id: 1,
+      id: 31,
       question:
         "Huquq normalarining maqsadi, mazmun va mohiyatini aniqlash hamda tushuntirishga yo‘naltirilgan faoliyat berilgan javobni aniqlang",
       options: [
@@ -353,7 +353,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 2,
+      id: 32,
       question: "Rasmiy sharhlash qanday ko‘rinishlarda amalga oshiriladi",
       options: [
         "Normativ va kazual",
@@ -365,7 +365,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 3,
+      id: 33,
       question:
         "Huquqiy aktni o‘zi chiqargan organ tomonidan amalga oshiriladigan sharhlash turini aniqlang",
       options: [
@@ -378,7 +378,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 4,
+      id: 34,
       question:
         "O‘zbekiston Respublikasi Konstitutsiyasining birinchi bo‘limiga kiruvchi bo‘limlarni belgilang",
       options: ["1, 3", "2, 4", "2, 3", "1, 4"],
@@ -386,7 +386,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 5,
+      id: 35,
       question:
         "O‘zbekiston Respublikasi davlatlar va tashkilotlar bilan qanday tashqi siyosat amalga oshiradi?",
       options: ["tinchliksevar", "birdamlik", "mutanosiblik", "adolatlilik"],
@@ -394,7 +394,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 6,
+      id: 36,
       question:
         "O‘zbekiston Respublikasida qaysi mafkura davlat mafkurasi sifatida o‘rnatilgan?",
       options: [
@@ -407,14 +407,14 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 7,
+      id: 37,
       question: "O‘zbekiston davlati boshqaruv shakliga qanday davlat?",
       options: ["respublika", "ijtimoiy", "demokratik", "suveren"],
       correctAnswer: "respublika",
       type: "Milliy qonunchilik",
     },
     {
-      id: 8,
+      id: 38,
       question:
         "Qaysi qatorda Konstitutsiyamizning birinchi bo‘limi nomi to‘g‘ri berilgan?",
       options: [
@@ -427,7 +427,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 9,
+      id: 39,
       question:
         "O‘zbekiston davlati huquqqa bo‘lgan munosabatiga ko‘ra qanday davlat hisoblanadi?",
       options: ["huquqiy", "etatik", "dunyoiy", "ijtimoiy"],
@@ -435,7 +435,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 10,
+      id: 40,
       question:
         "Qaysi qatorda O‘zbekistonning tashqi siyosatda amal qiladigan prinsiplari xato berilgan?",
       options: [
@@ -448,7 +448,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 11,
+      id: 41,
       question:
         "Insonning shaxsiy huquq va erkinliklari har kimga qachondan boshlab tegishli bo‘ladi?",
       options: [
@@ -461,7 +461,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 12,
+      id: 42,
       question:
         "Konstitutsiyamizga ko‘ra, har bir insonning ajralmas huquqi bu...?",
       options: ["yashash", "nikoh qurish", "fikr erkinligi", "mulkdor bo‘lish"],
@@ -469,7 +469,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 13,
+      id: 43,
       question:
         "O‘zbekistonda insonning huquq va erkinlari nima asosida kafolatlanadi?",
       options: [
@@ -483,7 +483,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 14,
+      id: 44,
       question:
         "Fuqarolarga beriladigan imtiyozlar qanday prinsipga asoslanishi kerak?",
       options: [
@@ -496,7 +496,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 15,
+      id: 45,
       question:
         "Insonning Konstitutsiya va qonunlarda mustahkamlab qo‘yilgan huquq va erkinliklari qanday holatda cheklab qo‘yish mumkin?",
       options: [
@@ -509,7 +509,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 16,
+      id: 46,
       question:
         "Shaxsni sudning qarorisiz qancha vaqtgacha ushlab turish mumkin?",
       options: ["48 soat", "72 soat", "24 soat", "12 kun"],
@@ -517,7 +517,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 17,
+      id: 47,
       question:
         "O‘zbekiston insonlar qanday holatlarda ijtimoiy nafaqa olish huquqiga ega?",
       options: ["3, 4, 5", "1, 2, 6", "2, 4, 6", "1, 3, 5"],
@@ -525,7 +525,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 18,
+      id: 48,
       question: "Konstitutsiyamizga ko‘ra, Davlatning oliy maqsadi bu...?",
       options: [
         "Insonning huquq va erkinliklarini ta’minlash",
@@ -537,7 +537,7 @@ const questionsByCategory: QuestionsByCategory = {
       type: "Milliy qonunchilik",
     },
     {
-      id: 19,
+      id: 49,
       question:
         "Davlat organlarining yoxud ularning mansabdor shaxslarining qonunga xilof qarorlari va harakatlari tufayli kishilarga yetkazilgan zararning o‘rnini kim qoplaydi?",
       options: [
@@ -552,70 +552,70 @@ const questionsByCategory: QuestionsByCategory = {
   ],
   IQ: [
     {
-      id: 41,
+      id: 51,
       question: ques_1,
       options: ["31", "28", "29", "30", "32", "33"],
       correctAnswer: "31",
       type: "IQ",
     },
     {
-      id: 42,
+      id: 52,
       question: ques_2,
       options: ["2", "1", "3", "4"],
       correctAnswer: "2",
       type: "IQ",
     },
     {
-      id: 43,
+      id: 53,
       question: ques_3,
       options: ["3", "1", "2", "4"],
       correctAnswer: "3",
       type: "IQ",
     },
     {
-      id: 44,
+      id: 54,
       question: ques_4,
       options: ["1", "2", "3", "4", "5"],
       correctAnswer: "1",
       type: "IQ",
     },
     {
-      id: 45,
+      id: 55,
       question: ques_5,
       options: ["4", "1", "2", "3", "5", "6"],
       correctAnswer: "4",
       type: "IQ",
     },
     {
-      id: 46,
+      id: 56,
       question: ques_6,
       options: ["3", "1", "2", "4", "5", "6"],
       correctAnswer: "3",
       type: "IQ",
     },
     {
-      id: 47,
+      id: 57,
       question: ques_7,
       options: ["3,5", "3,6", "1,3", "1,5", "2,5", "2,6"],
       correctAnswer: "3,5",
       type: "IQ",
     },
     {
-      id: 48,
+      id: 58,
       question: ques_8,
       options: ["5", "1", "2", "3", "4", "6"],
       correctAnswer: "5",
       type: "IQ",
     },
     {
-      id: 49,
+      id: 59,
       question: ques_9,
       options: ["2", "1", "5", "3", "4"],
       correctAnswer: "2",
       type: "IQ",
     },
     {
-      id: 50,
+      id: 60,
       question: ques_10,
       options: ["4", "1", "2", "3", "5"],
       correctAnswer: "4",
