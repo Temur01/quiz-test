@@ -68,10 +68,23 @@ export const validatePassport = async (
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError<{ message: string }>;
+      const errorMessage = axiosError.response?.data?.message;
+
+      if (
+        errorMessage ===
+        "Бунақа фойдаланувчи топилмади, илтимос маълумотлар аниқлилигини текширинг!"
+      ) {
+        return {
+          success: false,
+          data: emptyPassportData,
+          error: "JSHSHIR yoki pasport ma'lumoti xato kiritilgan!",
+        };
+      }
+
       return {
         success: false,
         data: emptyPassportData,
-        error: axiosError.response?.data?.message && "Serverda xatolik mavjud!",
+        error: errorMessage || "Serverda xatolik mavjud!",
       };
     }
     return {
