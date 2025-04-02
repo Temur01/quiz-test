@@ -519,7 +519,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 47,
       question:
-        "O‘zbekiston insonlar qanday holatlarda ijtimoiy nafaqa olish huquqiga ega?",
+        "O‘zbekiston insonlar qanday holatlarda ijtimoiy nafaqa olish huquqiga ega? 1) o'qiyotgan vaqtda 2) kasodga uchraganda 3) mehnat qobiliyatini yo'qotganda 4) ishsizlikda 5) boquvchini yo'qotganda 6) yangi uyga ko'chganda",
       options: ["3, 4, 5", "1, 2, 6", "2, 4, 6", "1, 3, 5"],
       correctAnswer: "3, 4, 5",
       type: "Milliy qonunchilik",
