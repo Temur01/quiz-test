@@ -10,7 +10,6 @@ import ques_8 from "../assets/iq/8.jpg";
 import ques_9 from "../assets/iq/9.jpg";
 import ques_10 from "../assets/iq/10.jpg";
 
-// Define questions by category
 const questionsByCategory: QuestionsByCategory = {
   "Davlat tili": [
     {
@@ -40,7 +39,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 4,
       question:
-        "Ushbu so‘zlardan nech tasida imloviy xatolik uchraydi? Hasharot, talon-toroj, tanazzul, taxqirlamoq",
+        "Ushbu so‘zlardan nechtasida imloviy xatolik uchraydi? Hasharot, talon-toroj, tanazzul, taxqirlamoq",
       options: ["3", "1", "2", "4"],
       correctAnswer: "3",
       type: "Davlat tili",
@@ -48,7 +47,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 5,
       question:
-        "Ushbu so‘zlardan nech tasi imloviy jihatdan to‘g‘ri yozilgan? Taxlit, to’palon, uvishmoq, uyquchi",
+        "Ushbu so‘zlardan nechtasi imloviy jihatdan to‘g‘ri yozilgan? Taxlit, to’palon, uvishmoq, uyquchi",
       options: ["1", "2", "3", "4"],
       correctAnswer: "1",
       type: "Davlat tili",
@@ -56,7 +55,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 6,
       question:
-        "Ushbu so‘zlardan nech tasida imloviy xatolik uchraydi? Taxlit, to’palon, uvishmoq, uyquchi",
+        "Ushbu so‘zlardan nechtasida imloviy xatolik uchraydi? Taxlit, to’palon, uvishmoq, uyquchi",
       options: ["2", "3", "4", "1"],
       correctAnswer: "2",
       type: "Davlat tili",
@@ -146,7 +145,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 13,
       question:
-        "Klaviatura yordamida kiritiladigan va monitor ekranida ko‘rinadigan xar qanday harf, raqam, tinish belgisi, arifmetik amal belgisi nima deb ataladi?",
+        "Klaviatura yordamida kiritiladigan va monitor ekranida ko‘rinadigan har qanday harf, raqam, tinish belgisi, arifmetik amal belgisi nima deb ataladi?",
       options: ["Belgi", "So‘z", "Abzas", "Matn"],
       correctAnswer: "Belgi",
       type: "Axborot kommunikatsiya texnologiyalari",
@@ -196,7 +195,7 @@ const questionsByCategory: QuestionsByCategory = {
     {
       id: 18,
       question:
-        "Matnlar taxrirlovchisi kop amalli dasturdan iborat matn muharriri nima?",
+        "Matnlar taxrirlovchisi ko'p amalli dasturdan iborat matn muharriri nima?",
       options: [
         "Microsoft Word 97",
         "Microsoft oce 97",
@@ -624,7 +623,6 @@ const questionsByCategory: QuestionsByCategory = {
   ],
 };
 
-// Shuffle function for arrays
 const shuffleArray = <T>(array: T[]): T[] => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -634,7 +632,6 @@ const shuffleArray = <T>(array: T[]): T[] => {
   return shuffled;
 };
 
-// Shuffle questions within each category
 const shuffledQuestionsByCategory: QuestionsByCategory = {
   "Davlat tili": shuffleArray(questionsByCategory["Davlat tili"]),
   "Axborot kommunikatsiya texnologiyalari": shuffleArray(
@@ -644,7 +641,6 @@ const shuffledQuestionsByCategory: QuestionsByCategory = {
   IQ: shuffleArray(questionsByCategory.IQ),
 };
 
-// Flatten the questions array for compatibility with existing components
 export const questions: Question[] = [
   ...shuffledQuestionsByCategory["Davlat tili"].slice(0, 10),
   ...shuffledQuestionsByCategory["Milliy qonunchilik"].slice(0, 10),
@@ -654,5 +650,4 @@ export const questions: Question[] = [
   ...shuffledQuestionsByCategory.IQ.slice(0, 10),
 ];
 
-// Also export the shuffled questions by category
 export { shuffledQuestionsByCategory as questionsByCategory };
