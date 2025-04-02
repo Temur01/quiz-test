@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Award, CheckCircle, FileText } from "lucide-react";
+import { useEffect } from "react";
+import { SendResultApi } from "../api/SendResultApi";
+import Cookies from "js-cookie";
 
 interface ResultsScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -43,19 +46,25 @@ const ResultsScreen = ({
     0,
   );
 
-  // Calculate total correct answers
+  useEffect(() => {
+    if (totalScore) {
+      const userPin = Cookies.get("user_pin");
+      if (userPin) {
+        SendResultApi(userPin, totalScore);
+      }
+    }
+  }, [totalScore]);
+
   const totalCorrect = Object.values(resultsByCategory).reduce(
     (sum, category) => sum + category.correct,
     0,
   );
 
-  // Calculate total questions
   const totalQuestionsCount = Object.values(resultsByCategory).reduce(
     (sum, category) => sum + category.total,
     0,
   );
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

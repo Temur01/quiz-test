@@ -22,7 +22,6 @@ export interface QuizAppRef {
   completeQuiz: () => void;
 }
 
-// Shuffle function for arrays
 const shuffleArray = <T,>(array: T[]): T[] => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -40,14 +39,11 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
       image: "",
     });
 
-    // Create a shuffled version of questions with shuffled options
     const shuffledQuestions = useMemo(() => {
       return questions.map((question) => {
-        // Create a mapping between original options and shuffled options
         const originalOptions = [...question.options];
         const shuffledOptions = shuffleArray([...originalOptions]);
 
-        // Create a mapping to track which shuffled option corresponds to which original option
         const optionMapping = shuffledOptions.reduce(
           (map, option) => {
             map[option] = originalOptions.indexOf(option);
@@ -58,9 +54,9 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
 
         return {
           ...question,
-          originalOptions, // Keep the original options for reference
-          options: shuffledOptions, // Use shuffled options for display
-          optionMapping, // Store the mapping for answer tracking
+          originalOptions,
+          options: shuffledOptions,
+          optionMapping,
         };
       });
     }, []);
@@ -89,10 +85,8 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
       });
     }, [shuffledQuestions]);
 
-    // Expose the completeQuiz method to parent components via ref
     useImperativeHandle(ref, () => ({
       completeQuiz: () => {
-        // When time is up, we want to complete the quiz regardless of how many questions are answered
         setQuizState((prevState) => ({
           ...prevState,
           isCompleted: true,
@@ -108,13 +102,10 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
       const currentQuestion =
         quizState.questions[quizState.currentQuestionIndex];
 
-      // Create updated answers object with the new answer
       const updatedAnswers = {
         ...quizState.answers,
         [currentQuestion.id]: answer,
       };
-
-      // Update state with the new answers
       setQuizState((prev) => ({
         ...prev,
         answers: updatedAnswers,
@@ -124,11 +115,9 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
         if (quizState.currentQuestionIndex < quizState.questions.length - 1) {
           handleNextQuestion();
         } else {
-          // For the last question, check if all questions are now answered
           if (
             Object.keys(updatedAnswers).length === quizState.questions.length
           ) {
-            // All questions are answered, complete the quiz
             setQuizState((prevState) => ({
               ...prevState,
               isCompleted: true,
@@ -138,7 +127,6 @@ const QuizApp = forwardRef<QuizAppRef, QuizAppProps>(
               onQuizComplete(true);
             }
           } else {
-            // Not all questions are answered yet
             completeQuizWithValidation();
           }
         }
