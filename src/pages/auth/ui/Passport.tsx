@@ -37,7 +37,7 @@ export const PassportAuth = () => {
     if (!value.trim()) {
       setErrors((prev) => ({
         ...prev,
-        passport: "Passport ma'lumotlari kiritilmagan",
+        passport: "Pasport ma'lumotlari kiritilmagan",
       }));
       return false;
     }
@@ -46,7 +46,7 @@ export const PassportAuth = () => {
     if (!passportRegex.test(value)) {
       setErrors((prev) => ({
         ...prev,
-        passport: "Passport noto'g'ri formatda (AB1234567)",
+        passport: "Pasport noto'g'ri formatda (AB1234567)",
       }));
       return false;
     }
@@ -120,7 +120,7 @@ export const PassportAuth = () => {
 
         {errors.general && (
           <div className="mb-6 p-3 bg-red-50 border-l-4 border-red-500 text-red-700 rounded-r">
-            <div className="flex">
+            <div className="flex items-center">
               <svg
                 className="h-5 w-5 text-red-500 mr-2"
                 fill="none"
@@ -180,7 +180,7 @@ export const PassportAuth = () => {
             htmlFor="passport"
             className="block text-sm font-medium text-gray-700 mb-2"
           >
-            Passport <span className="text-red-500">*</span>
+            Pasport <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
